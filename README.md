@@ -74,6 +74,7 @@ Aplica la mayor cantidad de reglas de ESLint que sea posible al proyecto y notif
 2. Hacer push de tus cambios directamente al feature branch, **NUNCA DIRECTAMENTE A `main`**.
 3. Crear un Pull Request a `main`.
 4. Esperar a que el Pipeline de Github Actions se ejecute exitosamente y a que otra persona más apruebe tus cambios antes de realizar un merge a la rama `main`.
+5. Eliminar el feature branch una vez se haya realizado merge exitosamente.
 
 ## Licencia
 
