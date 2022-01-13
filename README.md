@@ -17,7 +17,7 @@ Puedes ver el proyecto desplegado [aquí](https://notipet.netlify.app/).
 - ESLint
 - Prettier
 - Github Actions
-- Netlify 
+- Netlify
 
 ## Corriendo el Proyecto
 
