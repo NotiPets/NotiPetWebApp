@@ -1,40 +1,80 @@
-# Getting Started with Create React App
+# NotiPet Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sobre el Proyecto 🐾
 
-## Available Scripts
+NotiPet es un proyecto cuyo propósito es el de conectar a los dueños de mascotas con las veterinarias con los cuales contratan servicios para sus mascotas permitiéndoles a estos estar al tanto de los servicios que le están siendo realizados a sus mascotas para de esta forma estar al tanto de éstos en todo momento.
 
-In the project directory, you can run:
+## Tecnologías Usadas
 
-### `npm start`
+- JavaScript (duh)
+- React.js 17.0.2+
+- TailwindCSS 3.0.13+
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Corriendo el Proyecto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerrequisitos
 
-### `npm test`
+Para correr el proyecto debes tener instalado:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 16.x +
+- npm 8.1.2
 
-### `npm run build`
+### Instalación
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clonar el repo:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/NotiPets/NotiPetWebApp.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Instalar dependencias de NPM:
 
-### `npm run eject`
+```
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Correr el proyecto:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Scripts Disponibles
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+En el directorio del proyecto se pueden correr los siguientes comandos:
+
+#### `npm start`
+
+Corre el proyecto en modo desarrollo en [http://localhost:3000](http://localhost:3000).
+
+#### `npm test`
+
+Lanza el corredor de pruebas de npm de guardia interactivo.
+
+#### `npm run format`
+
+Aplica el formato recomendado de Prettier a todo el proyecto.
+
+#### `npm run format:check`
+
+Verifica que el proyecto corresponda con el formato recomendado de Prettier.
+
+#### `npm run lint`
+
+Verifica que el proyecto corresponda con las reglas de ESLint.
+
+#### `npm run lint:fix`
+
+Aplica la mayor cantidad de reglas de ESLint que sea posible al proyecto y notifica las reglas que no se pudieron aplicar.
+
+## Estrategía de Branches
+
+1. Crear un feature branch a partir del branch main (un branch debe tener un solo objetivo). Usar la siguiente convención:
+   `feature/{nombre del feature}`
+2. Hacer push de tus cambios directamente al feature branch, **NUNCA DIRECTAMENTE A `main`**.
+3. Crear un Pull Request a `main`.
+4. Esperar a que el Pipeline de Github Actions se ejecute exitosamente y a que otra persona más apruebe tus cambios antes de realizar un merge a la rama `main`.
+
+## Licencia
+
+Ver `LICENSE`
