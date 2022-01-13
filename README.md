@@ -4,7 +4,7 @@
 
 NotiPet es un proyecto cuyo propósito es el de conectar a los dueños de mascotas con las veterinarias con los cuales contratan servicios para sus mascotas permitiéndoles a estos estar al tanto de los servicios que le están siendo realizados a sus mascotas para de esta forma estar al tanto de éstos en todo momento.
 
-Puedes ver el proyecto desplegado [aquí](https://notipet.netflify.com).
+Puedes ver el proyecto desplegado [aquí](https://notipet.netflify.app).
 
 ## Tecnologías Usadas
 
