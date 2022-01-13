@@ -28,6 +28,6 @@ jobs:
         cache: 'npm'
         
     - run: npm ci
-    - run: npm test
+    - run: npm test --passWithNoTests
     - run: npm run build
 
