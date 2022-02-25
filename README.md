@@ -10,7 +10,7 @@ Puedes ver el proyecto desplegado [aquí](https://notipet.netlify.app/).
 
 - JavaScript (duh)
 - React.js 17.0.2+
-- TailwindCSS 3.0.13+
+- CSS Modules
 
 ### Tooling
 
