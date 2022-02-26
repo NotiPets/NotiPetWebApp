@@ -1,0 +1,12 @@
+.input {
+  margin: 0.5rem 0.25rem;
+}
+
+.input label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.input input {
+  border-radius: 0.3rem;
+}
