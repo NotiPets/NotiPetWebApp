@@ -1,3 +1,180 @@
-/* .home {
+.option-icons {
+  height: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #00cbcc;
+}
 
-} */
+.cart-icon {
+  margin: 3px 3px;
+}
+
+.user-icon {
+  margin: 3px 3px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  padding-left: 5%;
+  padding-right: 3%;
+  position: relative;
+  background-size: cover;
+  background-position: inherit;
+  background-repeat: no-repeat;
+  background-image: url(./bg.png);
+}
+
+.header {
+  display: flex;
+  padding: 0 24px;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.app-logo {
+  width: 200px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.container nav {
+  flex: 1;
+  margin-left: 10;
+}
+
+.container nav ul li {
+  color: white;
+  margin: 0 15px;
+  list-style: none;
+  line-height: 80px;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.container nav ul li a {
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: 400;
+  padding: 7px 13px;
+  font-weight: bold;
+  border-radius: 3px;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.container nav ul li a:hover {
+  color: #fff;
+  transition: 0.5s;
+  border-radius: 20px;
+  text-decoration: underline;
+  background-color: #00cbcc;
+  text-decoration-color: #fff;
+}
+
+a.active {
+  color: white;
+  text-decoration: underline;
+  background-color: #00cbcc;
+}
+
+.option-icons {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.user-icon:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  box-shadow: 3px 8px 22px rgba(94, 28, 68, 0.15);
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content .text {
+  max-width: 600px;
+  position: relative;
+}
+
+.content .text h1 {
+  font-size: 4.5rem;
+  color: #000000;
+  font-weight: 800;
+  margin-top: 80px;
+  text-align: center;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+}
+
+.content .text span {
+  width: 100%;
+  display: block;
+  font-weight: 800;
+  color: #505356;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.content .text p {
+  font-size: 17px;
+  margin-top: 40px;
+  font-weight: 600;
+  color: #e7e3e3;
+  letter-spacing: 0.1em;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  color: #fff;
+  display: block;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.5s;
+  font-weight: 700;
+  width: fit-content;
+  padding: 15px 50px;
+  text-align: center;
+  border-radius: 20px;
+  text-decoration: none;
+  background: #00363a;
+  margin: 60px auto 0 auto;
+  box-shadow: 1px 4px 12px rgba(94, 28, 68, 0.15);
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 0;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    flex-direction: column;
+  }
+}
