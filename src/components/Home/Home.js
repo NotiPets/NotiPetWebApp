@@ -1,5 +1,5 @@
 import classes from "./Home.module.css";
-import appLogo from "./logo.png";
+import appLogo from "../../assets/logo.png";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
         <nav>
           <ul className={classes["nav-menu"]}>
             <li className={classes["nav-item"]}>
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li className={classes["nav-item"]}>
               <a href="">Tienda</a>

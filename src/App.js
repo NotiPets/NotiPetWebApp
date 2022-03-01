@@ -25,7 +25,6 @@ const App = () => {
         <Route path="404" element={<NotFoundPage />} />
         <Route path="*" element={<Navigate replace={true} to="/404" />} />
       </Routes>
-      <p style={{ fontWeight: "bold" }}>test</p>
     </div>
   );
 };
