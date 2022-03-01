@@ -1,10 +1,10 @@
 @font-face {
   font-family: "Louis George Cafe";
-  src: url("~/public/fonts/Louis George Cafe.ttf") format("truetype"),
-    url("~/public/fonts/Louis George Cafe Bold.ttf") format("truetype"),
-    url("~/public/fonts/Louis George Cafe Bold Italic.ttf") format("truetype"),
-    url("~/public/fonts/Louis George Cafe Light.ttf") format("truetype"),
-    url("~/public/fonts/Louis George Cafe Light Italic.ttf") format("truetype");
+  src: url("~/src/assets/fonts/Louis George Cafe.ttf") format("truetype"),
+    url("~/src/assets/fonts/Louis George Cafe Bold.ttf") format("truetype"),
+    url("~/src/assets/fonts/Louis George Cafe Bold Italic.ttf") format("truetype"),
+    url("~/src/assets/fonts/Louis George Cafe Light.ttf") format("truetype"),
+    url("~/src/assets/fonts/Louis George Cafe Light Italic.ttf") format("truetype");
 }
 
 html {

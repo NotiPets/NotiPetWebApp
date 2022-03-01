@@ -1,16 +1,21 @@
 import classes from "./Button.module.css";
+import spinner from "../../../assets/spinner.gif";
 
-const Button = ({ className, isPrimary, type, ...props }) => {
+const Button = ({ className, isPrimary, type, isLoading, ...props }) => {
+  const cssClasses = `${classes.button} ${
+    isPrimary ? classes.primary : classes.secondary
+  } ${className}`;
+
   return (
     <button
-      className={`${classes.button} ${
-        isPrimary ? classes.primary : classes.secondary
-      } ${className}`}
+      className={cssClasses}
       type={type || "button"}
       onClick={props.onClick}
+      disabled={isLoading}
       {...props}
     >
-      {props.children}
+      {!isLoading && props.children}
+      {isLoading && <img src={spinner} alt="" width="20" height="20" />}
     </button>
   );
 };
