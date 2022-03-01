@@ -23,13 +23,16 @@ const Login = () => {
     event.preventDefault();
     const enteredUsername = usernameInput.current.value;
     const enteredPassword = passwordInput.current.value;
+    console.log(enteredPassword, enteredUsername);
 
-    const endpoint = "";
+    const firebaseKey = "AIzaSyBT5XhQJgrppKQP5-hER5dvaLyvxDxMdVY";
+    const endpoint = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseKey}`;
     const method = "POST";
     const reqHeaders = { "Content-Type": "application/json" };
     const reqBody = JSON.stringify({
-      username: enteredUsername,
-      password: enteredPassword
+      email: enteredUsername,
+      password: enteredPassword,
+      returnSecureToken: true
     });
 
     try {
@@ -45,11 +48,18 @@ const Login = () => {
         const jsonResponse = await response.json();
         authContext.login(jsonResponse.idToken);
         navigate("/dashboard");
-        // Mas logica a partir de la respuesta del api
         return;
+      } else if (response.status === 400) {
+        const json = await response.json();
+        if (
+          json.error.message === "INVALID_EMAIL" ||
+          json.error.message === "EMAIL_NOT_FOUND" ||
+          json.error.message === "INVALID_PASSWORD"
+        ) {
+          throw new Error("Usuario o contraseña invalidos");
+        }
       }
-
-      throw new Error("Algo salió mal al iniciar sesión");
+      throw new Error(`Error ${response.status}: Algo salió mal al iniciar sesión`);
     } catch (error) {
       setError({ message: error.message, isError: true });
     }
@@ -62,11 +72,11 @@ const Login = () => {
       <div className={classes.header}>
         <img src={appLogo} className={classes["app-logo"]} />
 
-        <div className={classes["cart-icon"]}>
+        {/* <div className={classes["cart-icon"]}>
           <a href="">
             <img src="https://img.icons8.com/windows/35/02546A/shopping-cart.png" />
           </a>
-        </div>
+        </div> */}
       </div>
 
       <h1>
@@ -107,7 +117,7 @@ const Login = () => {
         </div>
 
         <div className={classes.actions}>
-          <div className={classes["text-div"]}>
+          {/* <div className={classes["text-div"]}>
             <input
               type="checkbox"
               id="remember-me"
@@ -119,7 +129,7 @@ const Login = () => {
             </label>
 
             <a href="/">¿Olvidó su contraseña?</a>
-          </div>
+          </div> */}
           <Button
             type="submit"
             isPrimary={true}
