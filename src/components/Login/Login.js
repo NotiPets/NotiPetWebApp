@@ -56,7 +56,7 @@ const Login = () => {
           json.error.message === "EMAIL_NOT_FOUND" ||
           json.error.message === "INVALID_PASSWORD"
         ) {
-          throw new Error("Usuario o contraseña invalidos");
+          throw new Error("Usuario o contraseña inválidos");
         }
       }
       throw new Error(`Error ${response.status}: Algo salió mal al iniciar sesión`);
@@ -72,11 +72,11 @@ const Login = () => {
       <div className={classes.header}>
         <img src={appLogo} className={classes["app-logo"]} />
 
-        {/* <div className={classes["cart-icon"]}>
+        <div className={classes["cart-icon"]}>
           <a href="">
             <img src="https://img.icons8.com/windows/35/02546A/shopping-cart.png" />
           </a>
-        </div> */}
+        </div>
       </div>
 
       <h1>
@@ -117,7 +117,7 @@ const Login = () => {
         </div>
 
         <div className={classes.actions}>
-          {/* <div className={classes["text-div"]}>
+          <div className={classes["text-div"]}>
             <input
               type="checkbox"
               id="remember-me"
@@ -129,7 +129,7 @@ const Login = () => {
             </label>
 
             <a href="/">¿Olvidó su contraseña?</a>
-          </div> */}
+          </div>
           <Button
             type="submit"
             isPrimary={true}
