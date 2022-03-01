@@ -1,8 +1,13 @@
+import classes from "./NotFoundPage.module.css";
+
 const NotFoundPage = () => {
   return (
-    <section>
-      <h1>404</h1>
-    </section>
+    <div className={classes["animation-container"]}>
+      <iframe
+        className={classes.animation}
+        src="https://embed.lottiefiles.com/animation/97881"
+      ></iframe>
+    </div>
   );
 };
 
