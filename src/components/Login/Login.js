@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
-import Button from "../UI/Button/Button";
+import Button from "../ui/Button/Button";
 import classes from "./Login.module.css";
 import appLogo from "../../assets/logo.png";
 
