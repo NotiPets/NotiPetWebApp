@@ -23,10 +23,7 @@ const Login = () => {
     event.preventDefault();
     const enteredUsername = usernameInput.current.value;
     const enteredPassword = passwordInput.current.value;
-    console.log(enteredPassword, enteredUsername);
 
-    // const firebaseKey = "AIzaSyBT5XhQJgrppKQP5-hER5dvaLyvxDxMdVY";
-    // const endpoint = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseKey}`;
     const endpoint = "https://noti-pet-test.herokuapp.com/api/login";
     const method = "POST";
     const reqHeaders = { "Content-Type": "application/json" };
