@@ -14,17 +14,14 @@ const Login = () => {
   const authContext = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState({
-    message: "",
-    isError: false
-  });
+  const [error, setError] = useState(null);
 
   const submitHandler = async (event) => {
     event.preventDefault();
     const enteredUsername = usernameInput.current.value;
     const enteredPassword = passwordInput.current.value;
 
-    const endpoint = "https://noti-pet-test.herokuapp.com/api/login";
+    const endpoint = "https://notipet-webapi.herokuapp.com/api/login";
     const method = "POST";
     const reqHeaders = { "Content-Type": "application/json" };
     const reqBody = JSON.stringify({
@@ -33,13 +30,12 @@ const Login = () => {
     });
 
     try {
-      setError({ message: "", isError: false });
+      setError(null);
       setIsLoading(true);
       const response = await fetch(endpoint, {
         method: method,
         body: reqBody,
-        headers: reqHeaders,
-        mode: "cors"
+        headers: reqHeaders
       });
 
       if (response.ok) {
@@ -47,17 +43,15 @@ const Login = () => {
         authContext.login(jsonResponse.data.token);
         navigate("/dashboard");
         return;
-      } else if (response.status === 404) {
+      } else if (response.status === 401) {
         const json = await response.json();
-        if (json.message === "INVALID_CREDENTIALS") {
+        if (json.data.credentials.toLowerCase() === "invalid credentials") {
           throw new Error("Usuario o contraseña inválidos.");
-        } else if (json.message === "DOESNT_EXIST") {
-          throw new Error("El usuario ingresado no existe. Intente nuevamente.");
         }
       }
       throw new Error(`Error ${response.status}: Algo salió mal al iniciar sesión`);
-    } catch (error) {
-      setError({ message: error.message, isError: true });
+    } catch (err) {
+      setError({ message: err.message });
     }
 
     setIsLoading(false);
@@ -136,7 +130,7 @@ const Login = () => {
           </Button>
         </div>
 
-        {error.isError && <p className={classes.alert}>{error.message}</p>}
+        {error && <p className={classes.alert}>{error.message}</p>}
       </form>
     </section>
   );

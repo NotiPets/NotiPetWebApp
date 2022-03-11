@@ -25,7 +25,7 @@ const Home = () => {
         <div className={classes.text}>
           <h1>¡Bienvenido a NotiPet!</h1>
           <span>Por favor inicie sesión para continuar.</span>
-          <a href="Login" className={classes.btn}>
+          <a href="login" className={classes.btn}>
             Iniciar sesión
           </a>
         </div>
