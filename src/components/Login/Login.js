@@ -1,20 +1,40 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import Button from "../ui/Button/Button";
 import classes from "./Login.module.css";
 import appLogo from "../../assets/logo.png";
 
+const rememberUsernameItem = "NOTIPET_LOGIN_USERNAME";
+const rememberPasswordItem = "NOTIPET_LOGIN_PASSWORD";
+
+const updateRememberMeLocalStorage = (username, password, remember) => {
+  if (remember) {
+    localStorage.setItem(rememberUsernameItem, username);
+    localStorage.setItem(rememberPasswordItem, password);
+  } else {
+    localStorage.removeItem(rememberUsernameItem);
+    localStorage.removeItem(rememberPasswordItem);
+  }
+};
+
 const Login = () => {
   const navigate = useNavigate();
 
   const usernameInput = useRef();
   const passwordInput = useRef();
+  const rememberCredentialsInput = useRef();
 
   const authContext = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    usernameInput.current.value = localStorage.getItem(rememberUsernameItem) ?? "";
+    passwordInput.current.value = localStorage.getItem(rememberPasswordItem) ?? "";
+    rememberCredentialsInput.current.checked = true;
+  }, []);
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -40,6 +60,11 @@ const Login = () => {
 
       if (response.ok) {
         const jsonResponse = await response.json();
+        updateRememberMeLocalStorage(
+          enteredUsername,
+          enteredPassword,
+          rememberCredentialsInput.current.checked
+        );
         authContext.login(jsonResponse.data.token);
         navigate("/dashboard");
         return;
@@ -112,6 +137,7 @@ const Login = () => {
               type="checkbox"
               id="remember-me"
               name="remember-me"
+              ref={rememberCredentialsInput}
               className={classes["checkbox-input"]}
             />
             <label className={classes["checkbox-text"]} htmlFor="remember-me">
