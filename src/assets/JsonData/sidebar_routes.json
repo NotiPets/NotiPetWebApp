@@ -1,0 +1,52 @@
+[
+  {
+    "display_name": "Dashboard",
+    "route": "/",
+    "icon": "bx bx-category-alt"
+  },
+  {
+    "display_name": "Home",
+    "route": "/",
+    "icon": "bx bx-home"
+  },
+  {
+    "display_name": "Clientes",
+    "route": "/customers",
+    "icon": "bx bx-user"
+  },
+  {
+    "display_name": "Empleados",
+    "route": "/employees",
+    "icon": "bx bx-user"
+  },
+  {
+    "display_name": "Citas",
+    "route": "/appointments",
+    "icon": "bx bx-calendar-week"
+  },
+  {
+    "display_name": "Servicios",
+    "route": "/categories",
+    "icon": "bx bx-list-ol"
+  },
+  {
+    "display_name": "Productos tienda",
+    "route": "/products",
+    "icon": "bx bx-cart"
+  },
+  {
+    "display_name": "Mascotas",
+    "route": "/pets",
+    "icon": ""
+  },
+  {
+    "display_name": "Reportes",
+    "route": "/analytics",
+    "icon": "bx bx-bar-chart-alt"
+  },
+  {
+    "display_name": "Ajustes",
+    "route": "/settings",
+    "icon": "bx bx-cog"
+  }
+]

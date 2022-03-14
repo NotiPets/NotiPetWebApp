@@ -22,7 +22,7 @@
   background-size: cover;
   background-position: inherit;
   background-repeat: no-repeat;
-  background-image: url(../../assets/homePageBackground.png);
+  background-image: url(../../assets/Images/homePageBackground.png);
 }
 
 .header {
@@ -60,9 +60,9 @@
 }
 
 .container nav ul li a {
-  font-size: 1.5rem;
   color: #000000;
   font-weight: 400;
+  font-size: 1.5rem;
   padding: 7px 13px;
   font-weight: bold;
   border-radius: 3px;
@@ -122,10 +122,10 @@ a.active {
 }
 
 .content .text h1 {
-  font-size: 4.5rem;
   color: #000000;
   font-weight: 800;
   margin-top: 80px;
+  font-size: 4.5rem;
   text-align: center;
   line-height: 1.5em;
   letter-spacing: 0.1em;

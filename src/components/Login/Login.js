@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import Button from "../ui/Button/Button";
 import classes from "./Login.module.css";
-import appLogo from "../../assets/logo.png";
+import appLogo from "../../assets/Images/logo.png";
 
 const rememberUsernameItem = "NOTIPET_LOGIN_USERNAME";
 const rememberPasswordItem = "NOTIPET_LOGIN_PASSWORD";

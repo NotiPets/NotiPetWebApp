@@ -1,30 +1,11 @@
-@font-face {
-  font-family: "Louis George Cafe";
-  src: url("~/src/assets/fonts/Louis George Cafe.ttf") format("truetype"),
-    url("~/src/assets/fonts/Louis George Cafe Bold.ttf") format("truetype"),
-    url("~/src/assets/fonts/Louis George Cafe Bold Italic.ttf") format("truetype"),
-    url("~/src/assets/fonts/Louis George Cafe Light.ttf") format("truetype"),
-    url("~/src/assets/fonts/Louis George Cafe Light Italic.ttf") format("truetype");
-}
-
-html {
-  font-family: "Louis George Cafe", sans-serif;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: inherit;
-  box-sizing: inherit;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.7px;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
+  --txt-white: #fff;
   --main-bg: #ffffff;
   --second-bg: #fafafb;
   --txt-color: #455560;
-  --txt-white: #fff;
+
   --main-color: #00999b;
   --second-color: #05726b;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -56,22 +37,29 @@ body {
   --main-color-orange: #d68102;
   --second-color-orange: #fca11a;
 
-  --sidebar-width: 300px;
   --border-radius: 15px;
+  --sidebar-width: 300px;
   --topnav-height: 110px;
   --transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
 
+body {
+  letter-spacing: 0.7px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Louis George Cafe", sans-serif;
+}
+
 a {
-  text-decoration: none;
   color: unset;
+  text-decoration: none;
 }
 
 a:hover {
@@ -79,9 +67,9 @@ a:hover {
 }
 
 button {
-  cursor: pointer;
   border: 0;
   outline: 0;
+  cursor: pointer;
   color: var(--txt-color);
 }
 
@@ -90,8 +78,8 @@ ul {
 }
 
 input {
-  border: 2px solid transparent;
   outline: 0;
+  border: 2px solid transparent;
 }
 
 input:focus {
