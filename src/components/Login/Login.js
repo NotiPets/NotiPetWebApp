@@ -41,9 +41,9 @@ const Login = () => {
     const enteredUsername = usernameInput.current.value;
     const enteredPassword = passwordInput.current.value;
 
-    const endpoint = "https://notipet-webapi.herokuapp.com/api/login";
+    const endpoint = "https://notipet-api.herokuapp.com/api/login";
     const method = "POST";
-    const reqHeaders = { "Content-Type": "application/json" };
+    const reqHeaders = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
     const reqBody = JSON.stringify({
       username: enteredUsername,
       password: enteredPassword
