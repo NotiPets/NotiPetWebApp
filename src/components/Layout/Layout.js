@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import classes from "../../Layout.css";
+import classes from "../Layout/Layout.module.css";
 
 import TopNav from "../TopNav/TopNav";
 import Sidebar from "../SideBar/SideBar";

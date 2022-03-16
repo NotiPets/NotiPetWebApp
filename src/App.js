@@ -5,7 +5,6 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import "./Layout.css";
 import CustomersPage from "./pages/CustomersPage";
 
 const App = () => {

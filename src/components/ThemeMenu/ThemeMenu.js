@@ -59,9 +59,13 @@ const ThemeMenu = () => {
 
   clickOutsideRef(menu_ref, menu_toggle_ref);
 
-  const setActiveMenu = () => menu_ref.current.classList.add("active");
+  const [menuClasses, setMenuClasses] = useState(`${classes["theme-menu"]}`);
 
-  const closeMenu = () => menu_ref.current.classList.remove("active");
+  const setActiveMenu = () => setMenuClasses(`${classes["theme-menu"]} ${classes.active}`);
+  // const setActiveMenu = () => menu_ref.current.classList.add("active");
+
+  const closeMenu = () => setMenuClasses(`${classes["theme-menu"]}`);
+  // const closeMenu = () => menu_ref.current.classList.remove("active");
 
   const [currMode, setcurrMode] = useState("light");
 
@@ -103,9 +107,7 @@ const ThemeMenu = () => {
     if (colorClass !== undefined) setcurrColor(colorClass.id);
   }, []);
 
-  const bxBxClass = `bx-x`;
   const bxCheckClass = `bx-check`;
-  // const bxPaletteClass = `bx-palette`;
 
   return (
     <div>
@@ -114,12 +116,12 @@ const ThemeMenu = () => {
         className={classes["dropdown__toggle"]}
         onClick={() => setActiveMenu()}
       >
-        <i className="bx bx-palette"></i>
+        <i className={"bx bx-palette"}></i>
       </button>
-      <div ref={menu_ref} className={classes["theme-menu"]}>
+      <div ref={menu_ref} className={menuClasses}>
         <h4>Opciones de color</h4>
         <button className={classes["theme-menu__close"]} onClick={() => closeMenu()}>
-          <i className={`${classes.bx} ${classes[bxBxClass]}`}></i>
+          <i className={`bx bx-x`}></i>
         </button>
         <div className={classes["theme-menu__select"]}>
           <span>Escoja el modo de la aplicación</span>
@@ -127,9 +129,10 @@ const ThemeMenu = () => {
             {mode_settings.map((item, index) => (
               <li key={index} onClick={() => setMode(item)}>
                 <div
-                  className={`${classes["mode-list__color"]} ${
-                    classes[item.background]
-                  } ${setCurrentMode(item.id, currMode)}`}
+                  className={`${classes["mode-list__color"]} ${item.background} ${setCurrentMode(
+                    item.id,
+                    currMode
+                  )}`}
                 >
                   <i className={`${classes.bx} ${classes[bxCheckClass]}`}></i>
                 </div>
@@ -144,9 +147,10 @@ const ThemeMenu = () => {
             {color_settings.map((item, index) => (
               <li key={index} onClick={() => setColor(item)}>
                 <div
-                  className={`${classes["mode-list__color"]} ${
-                    classes[item.background]
-                  } ${setCurrentColor(item.id, currColor)}`}
+                  className={`${classes["mode-list__color"]} ${item.background} ${setCurrentColor(
+                    item.id,
+                    currColor
+                  )}`}
                 >
                   <i className={`${classes.bx} ${classes[bxCheckClass]}`}></i>
                 </div>

@@ -67,7 +67,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2 className="page-header">Dashboard</h2>
+      <h2 className="page-header"></h2>
+
       <div className="row">
         <div className="col-10">
           <div className="row">
@@ -90,7 +91,7 @@ const Dashboard = () => {
               />
             </div>
             <div className="card__footer">
-              <Link to="/">View all</Link>
+              <Link to="/">Ver todo</Link>
             </div>
           </div>
         </div>
@@ -128,7 +129,7 @@ const Dashboard = () => {
               />
             </div>
             <div className="card__footer">
-              <Link to="/">View all</Link>
+              <Link to="/">Ver todo</Link>
             </div>
           </div>
         </div>
