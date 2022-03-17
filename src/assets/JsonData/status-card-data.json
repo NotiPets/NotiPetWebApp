@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "bx bx-calendar-check",
+    "count": "67",
+    "title": "Citas completadas"
+  },
+  {
+    "icon": "bx bx-calendar-x",
+    "count": "09",
+    "title": "Citas pendientes"
+  },
+  {
+    "icon": "bx bx-home",
+    "count": "35",
+    "title": "Vacunas aplicadas"
+  }
+]

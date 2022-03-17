@@ -1,5 +1,5 @@
 import classes from "./Home.module.css";
-import appLogo from "../../assets/logo.png";
+import appLogo from "../../assets/Images/logo.png";
 
 const Home = () => {
   return (

@@ -1,5 +1,5 @@
 import classes from "./Button.module.css";
-import spinner from "../../../assets/spinner.gif";
+import spinner from "../../../assets/Images/spinner.gif";
 
 const Button = ({ className, isPrimary, type, isLoading, ...props }) => {
   const cssClasses = `${classes.button} ${

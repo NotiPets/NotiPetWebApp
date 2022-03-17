@@ -1,0 +1,18 @@
+[
+  {
+    "text": "Confirmar cita #235",
+    "status": "urgente"
+  },
+  {
+    "text": "Confirmar cita #247",
+    "status": "urgente"
+  },
+  {
+    "text": "Nueva cita creada",
+    "status": "nuevo"
+  },
+  {
+    "text": "Reportes actualizados",
+    "status": "default"
+  }
+]
