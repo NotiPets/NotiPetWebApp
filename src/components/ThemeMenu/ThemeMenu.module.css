@@ -60,3 +60,7 @@
 .mode-list__color.active > i {
   transform: scale(1);
 }
+
+i.bx-palette {
+  background: inherit;
+}

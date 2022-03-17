@@ -62,10 +62,8 @@ const ThemeMenu = () => {
   const [menuClasses, setMenuClasses] = useState(`${classes["theme-menu"]}`);
 
   const setActiveMenu = () => setMenuClasses(`${classes["theme-menu"]} ${classes.active}`);
-  // const setActiveMenu = () => menu_ref.current.classList.add("active");
 
   const closeMenu = () => setMenuClasses(`${classes["theme-menu"]}`);
-  // const closeMenu = () => menu_ref.current.classList.remove("active");
 
   const [currMode, setcurrMode] = useState("light");
 
@@ -83,10 +81,6 @@ const ThemeMenu = () => {
     setcurrColor(color.id);
     localStorage.setItem("colorMode", color.class);
     dispatch(ThemeAction.setColor(color.class));
-  };
-
-  const setCurrentMode = (id, currentMode) => {
-    return id === currentMode ? "active" : "";
   };
 
   const setCurrentColor = (id, currentColor) => {
@@ -107,16 +101,15 @@ const ThemeMenu = () => {
     if (colorClass !== undefined) setcurrColor(colorClass.id);
   }, []);
 
-  const bxCheckClass = `bx-check`;
-
   return (
-    <div>
+    <div style={{ color: currMode === "light" ? "#455560" : "#bbbbbb" }}>
       <button
+        style={{ background: "inherit" }}
         ref={menu_toggle_ref}
         className={classes["dropdown__toggle"]}
         onClick={() => setActiveMenu()}
       >
-        <i className={"bx bx-palette"}></i>
+        <img src="https://img.icons8.com/ios/25/ffffff/color-palette.png" />
       </button>
       <div ref={menu_ref} className={menuClasses}>
         <h4>Opciones de color</h4>
@@ -129,12 +122,11 @@ const ThemeMenu = () => {
             {mode_settings.map((item, index) => (
               <li key={index} onClick={() => setMode(item)}>
                 <div
-                  className={`${classes["mode-list__color"]} ${item.background} ${setCurrentMode(
-                    item.id,
-                    currMode
-                  )}`}
+                  className={`${classes["mode-list__color"]} ${item.background} ${
+                    item.id === currMode ? "active" : ""
+                  }`}
                 >
-                  <i className={`${classes.bx} ${classes[bxCheckClass]}`}></i>
+                  <i className={`bx bx-check`}></i>
                 </div>
                 <span>{item.name}</span>
               </li>
@@ -152,7 +144,7 @@ const ThemeMenu = () => {
                     currColor
                   )}`}
                 >
-                  <i className={`${classes.bx} ${classes[bxCheckClass]}`}></i>
+                  <i className={`bx bx-check`}></i>
                 </div>
                 <span>{item.name}</span>
               </li>
