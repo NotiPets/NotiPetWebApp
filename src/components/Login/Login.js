@@ -41,7 +41,8 @@ const Login = () => {
     const enteredUsername = usernameInput.current.value;
     const enteredPassword = passwordInput.current.value;
 
-    const endpoint = "https://notipet-api.herokuapp.com/api/login";
+    // eslint-disable-next-line no-undef
+    const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/login`;
     const method = "POST";
     const reqHeaders = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
     const reqBody = JSON.stringify({
@@ -70,7 +71,7 @@ const Login = () => {
         return;
       } else if (response.status === 401) {
         const json = await response.json();
-        if (json.data.credentials.toLowerCase() === "invalid credentials") {
+        if (json.data.credentials === "INVALID_CREDENTIALS") {
           throw new Error("Usuario o contraseña inválidos.");
         }
       }
