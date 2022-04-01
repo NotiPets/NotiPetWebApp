@@ -1,0 +1,100 @@
+.app-logo {
+  width: 200px;
+  height: 70px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.header {
+  display: flex;
+  padding: 0 24px;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.container nav {
+  flex: 1;
+  margin-left: 10;
+}
+
+.container nav ul li {
+  color: white;
+  margin: 0 15px;
+  list-style: none;
+  line-height: 80px;
+  display: inline-block;
+}
+
+.container nav ul li a {
+  color: #000000;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 7px 13px;
+  font-weight: bold;
+  border-radius: 3px;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.container nav ul li a:hover {
+  color: #fff;
+  transition: 0.5s;
+  border-radius: 20px;
+  text-decoration: underline;
+  background-color: #00cbcc;
+  text-decoration-color: #fff;
+}
+
+a.active {
+  color: white;
+  text-decoration: underline;
+  background-color: #00cbcc;
+}
+
+.option-icons {
+  height: auto;
+  display: flex;
+  margin-top: 20px;
+  position: relative;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #00cbcc;
+  justify-content: space-between;
+}
+
+.cart-icon {
+  margin: 3px 3px;
+}
+
+.user-icon {
+  margin: 3px 3px;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.user-icon:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 0;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    flex-direction: column;
+  }
+}

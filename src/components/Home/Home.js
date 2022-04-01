@@ -1,25 +1,10 @@
 import classes from "./Home.module.css";
-import appLogo from "../../assets/Images/logo.png";
+import NavBar from "../NavBar/NavBar";
 
 const Home = () => {
   return (
     <div className={classes.container}>
-      <div className={classes.header}>
-        <img src={appLogo} className={classes["app-logo"]} />
-        <nav>
-          <ul className={classes["nav-menu"]}>
-            <li className={classes["nav-item"]}>
-              <a href="/">Home</a>
-            </li>
-            <li className={classes["nav-item"]}>
-              <a href="">Tienda</a>
-            </li>
-            <li className={classes["nav-item"]}>
-              <a href="">Servicios</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <NavBar />
 
       <div className={classes.content}>
         <div className={classes.text}>

@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "rating": 5,
+    "price": 1550,
+    "serviceImage": "",
+    "category": "hospedaje",
+    "serviceName": "Hospedaje clásico",
+    "serviceDescription": "Hospedaje clásico para mascotas."
+  },
+  {
+    "id": 2,
+    "rating": 4,
+    "price": 1000,
+    "serviceImage": "",
+    "category": "hospedaje",
+    "serviceName": "Hospedaje premium",
+    "serviceDescription": "Hospedaje premium para mascotas."
+  },
+  {
+    "id": 3,
+    "rating": 3,
+    "price": 2000,
+    "serviceImage": "",
+    "category": "hospedaje",
+    "serviceName": "Full Day",
+    "serviceDescription": "Día de cuidado completo."
+  },
+  {
+    "id": 4,
+    "rating": 1,
+    "price": 1800,
+    "category": "baño",
+    "serviceImage": "",
+    "serviceName": "Baño mascota pequeña",
+    "serviceDescription": "Baño para mascotas pequeñas."
+  },
+  {
+    "id": 5,
+
+    "rating": 5,
+    "price": 2000,
+    "category": "baño",
+    "serviceImage": "",
+    "serviceName": "Baño mascota mediana",
+    "serviceDescription": "Baño para mascotas medianas."
+  },
+  {
+    "id": 6,
+    "rating": 5,
+    "price": 3500,
+    "category": "baño",
+    "serviceImage": "",
+    "serviceName": "Baño mascota grande",
+    "serviceDescription": "Baño para mascotas grandes."
+  }
+]

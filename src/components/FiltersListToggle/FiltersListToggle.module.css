@@ -1,0 +1,11 @@
+.toggle-button-group :hover {
+  transform: scale(1.1);
+  color: var(--txt-white);
+  transition: all 0.3s ease-in-out;
+  background-color: var(--main-color);
+}
+
+.toggle-button :hover {
+  color: var(--txt-white);
+  background-color: var(--main-color);
+}
