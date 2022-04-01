@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "./store/auth-context";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import StorePage from "./pages/StorePage";
 import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CustomersPage from "./pages/CustomersPage";
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="*" element={<Navigate replace={true} to="/404" />} />
         <Route path="customers" element={<CustomersPage />} />
         <Route path="employees" element={<EmployeesPage />} />
+        <Route path="store" element={<StorePage />} />
       </Routes>
     </div>
   );

@@ -1,0 +1,14 @@
+.label {
+  font-size: 0.8rem;
+}
+
+.wrap {
+  width: 100%;
+  display: flex;
+  margin-left: 0;
+  align-items: center;
+}
+
+.root checked {
+  color: var(--second-color);
+}

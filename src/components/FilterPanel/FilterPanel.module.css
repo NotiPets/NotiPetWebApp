@@ -1,0 +1,23 @@
+.label {
+  font-size: 25px;
+  margin-top: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--second-color);
+}
+
+.input-group {
+  margin-bottom: 4rem;
+}
+
+.input-group h1 {
+  color: #000;
+  text-align: center;
+}
+
+.label-range {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  color: var(--second-color);
+}

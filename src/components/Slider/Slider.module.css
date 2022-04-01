@@ -1,0 +1,15 @@
+.root {
+  width: 90%;
+}
+
+.thumb {
+  color: var(--main-color-cyan);
+}
+
+.track {
+  color: var(--main-bg-dark);
+}
+
+.rail {
+  color: var(--txt-color-dark);
+}
