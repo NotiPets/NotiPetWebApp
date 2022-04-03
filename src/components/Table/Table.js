@@ -1,62 +1,76 @@
-import React, { useState } from "react";
+/* eslint-disable react/jsx-key */
+import { useTable, usePagination } from "react-table";
 import classes from "./Table.module.css";
 
-const Table = (props) => {
-  const initDataShow =
-    props.limit && props.bodyData ? props.bodyData.slice(0, Number(props.limit)) : props.bodyData;
-
-  const [dataShow, setDataShow] = useState(initDataShow);
-
-  let pages = 1;
-
-  let range = [];
-
-  if (props.limit !== undefined) {
-    let page = Math.floor(props.bodyData.length / Number(props.limit));
-    pages = props.bodyData.length % Number(props.limit) === 0 ? page : page + 1;
-    range = [...Array(pages).keys()];
-  }
-
-  const [currPage, setCurrPage] = useState(0);
-
-  const selectPage = (page) => {
-    const start = Number(props.limit) * page;
-    const end = start + Number(props.limit);
-
-    setDataShow(props.bodyData.slice(start, end));
-
-    setCurrPage(page);
-  };
-
-  const isActive = currPage === "index" ? "active" : "";
+const Table = ({ columns, data }) => {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    prepareRow,
+    page,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    nextPage,
+    previousPage,
+    state: { pageIndex }
+  } = useTable(
+    {
+      columns,
+      data,
+      initialState: { pageIndex: 0 }
+    },
+    usePagination
+  );
 
   return (
-    <div>
-      <div className={classes["table-wrapper"]}>
-        <table>
-          {props.headData && props.renderHead ? (
-            <thead>
-              <tr>{props.headData.map((item, index) => props.renderHead(item, index))}</tr>
-            </thead>
-          ) : null}
-          {props.bodyData && props.renderBody ? (
-            <tbody>{dataShow.map((item, index) => props.renderBody(item, index))}</tbody>
-          ) : null}
-        </table>
-      </div>
-      {pages > 1 ? (
-        <div className={classes["table__pagination"]}>
-          {range.map((item, index) => (
-            <div
-              key={index}
-              className={`${classes["table__pagination-item"]} ${isActive}`}
-              onClick={() => selectPage(index)}
-            >
-              {item + 1}
-            </div>
+    <div className={classes["table-wrapper"]}>
+      <table {...getTableProps()}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              ))}
+            </tr>
           ))}
-        </div>
-      ) : null}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {page.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <div className={classes["table__pagination"]}>
+        <button
+          className={classes["table__pagination-item"]}
+          onClick={previousPage}
+          disabled={!canPreviousPage}
+        >
+          &lt;
+        </button>
+        <button
+          className={classes["table__pagination-item"]}
+          onClick={nextPage}
+          disabled={!canNextPage}
+        >
+          &gt;
+        </button>
+        <span>
+          Página&nbsp;
+          <strong>
+            {pageIndex + 1} de {pageOptions.length}
+          </strong>
+        </span>
+      </div>
     </div>
   );
 };

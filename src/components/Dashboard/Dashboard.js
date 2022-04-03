@@ -1,4 +1,4 @@
-import Table from "../Table/Table";
+import OldTable from "../Table/OldTable";
 import Badge from "../Badge/Badge";
 import Chart from "react-apexcharts";
 import { Link } from "react-router-dom";
@@ -85,7 +85,7 @@ const Dashboard = () => {
               <h3>Inbox</h3>
             </div>
             <div className="card__body">
-              <Table
+              <OldTable
                 bodyData={inboxList}
                 renderBody={(item, index) => renderInboxBody(item, index)}
               />
@@ -123,7 +123,7 @@ const Dashboard = () => {
               <h3>Actividad reciente</h3>
             </div>
             <div className="card__body">
-              <Table
+              <OldTable
                 bodyData={recentActivity}
                 renderBody={(item, index) => renderActivityBody(item, index)}
               />

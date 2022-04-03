@@ -1,36 +1,146 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Table from "../components/Table/Table";
 import Layout from "../components/Layout/Layout";
-import customerList from "../assets/JsonData/customers-list.json";
-
-const customerTableHead = [
-  "#",
-  "Código",
-  "Cliente",
-  "Fecha registro",
-  "Dirección",
-  "Email",
-  "Teléfono",
-  "Monto",
-  "Opciones"
-];
-
-const renderHead = (item, index) => <th key={index}>{item}</th>;
-
-const renderBody = (item, index) => (
-  <tr key={index}>
-    <td>{item.id}</td>
-    <td>{item.customerCode}</td>
-    <td>{item.name}</td>
-    <td>{item.registrationDate}</td>
-    <td>{item.location}</td>
-    <td>{item.email}</td>
-    <td>{item.phone}</td>
-    <td>{item.amount}</td>
-  </tr>
-);
 
 const Customers = () => {
+  const data = useMemo(
+    () => [
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      },
+      {
+        number: "1",
+        id: "3FGS2",
+        date: "Marzo 31, 2022",
+        address: "Juan Isidro Ortega",
+        email: "kev@gmail.com",
+        phone: "8092321180",
+        options: ""
+      }
+    ],
+    []
+  );
+
+  const columns = useMemo(
+    () => [
+      {
+        Header: "#",
+        accessor: "number"
+      },
+      {
+        Header: "Código",
+        accessor: "id"
+      },
+      {
+        Header: "Fecha registro",
+        accessor: "date"
+      },
+      {
+        Header: "Dirección",
+        accessor: "address"
+      },
+      {
+        Header: "Email",
+        accessor: "email"
+      },
+      {
+        Header: "Teléfono",
+        accessor: "phone"
+      },
+      {
+        Header: "Opciones",
+        accessor: "options"
+      }
+    ],
+    []
+  );
   return (
     <Layout>
       <div>
@@ -39,13 +149,7 @@ const Customers = () => {
           <div className="col-12">
             <div className="card">
               <div className="card__body">
-                <Table
-                  limit="10"
-                  headData={customerTableHead}
-                  renderHead={(item, index) => renderHead(item, index)}
-                  bodyData={customerList}
-                  renderBody={(item, index) => renderBody(item, index)}
-                />
+                <Table columns={columns} data={data} />
               </div>
             </div>
           </div>
