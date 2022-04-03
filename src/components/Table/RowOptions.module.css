@@ -1,0 +1,12 @@
+button {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+}
+
+.options {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
