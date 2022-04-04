@@ -3,6 +3,7 @@ import Table from "../components/Table/Table";
 import Layout from "../components/Layout/Layout";
 import RowOptions from "../components/Table/RowOptions";
 import spinner from "../assets/Images/spinner.gif";
+import CustomerModal from "../components/Customers/CustomerModal";
 
 const Customers = () => {
   const columns = useMemo(
@@ -46,11 +47,30 @@ const Customers = () => {
   const [tableData, setTableData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showEditClient, setShowEditClient] = useState(false);
+  const [showClientDetails, setShowClientDetails] = useState(false);
+  const [currentClientUsername, setCurrentClientUsername] = useState(null);
+
+  const editClientHandler = (username) => {
+    setCurrentClientUsername(username);
+    setShowEditClient(true);
+  };
+
+  const viewClientDetailsHandler = (username) => {
+    setCurrentClientUsername(username);
+    setShowClientDetails(true);
+  };
+
+  const closeModalHandler = () => {
+    setShowClientDetails(false);
+    setShowEditClient(false);
+  };
 
   const mapClientsData = (clientsData) => {
     return clientsData.map((client, index) => ({
       number: index + 1,
       id: client.id,
+      username: client.username,
       name: `${client.names} ${client.lastnames}`,
       date: new Date(client.created).toLocaleDateString("es-DO"),
       address: `${client.address1.substring(0, 16)}...`,
@@ -58,12 +78,16 @@ const Customers = () => {
       phone: client.phone,
       options: (
         <>
-          <RowOptions />
+          <RowOptions
+            onEdit={() => editClientHandler(client.username)}
+            onViewDetails={() => viewClientDetailsHandler(client.username)}
+          />
         </>
       )
     }));
   };
-  useEffect(async () => {
+
+  const fetchClients = async () => {
     setIsLoading(true);
     try {
       // eslint-disable-next-line no-undef
@@ -82,6 +106,10 @@ const Customers = () => {
       setError({ message: error.message });
     }
     setIsLoading(false);
+  };
+
+  useEffect(async () => {
+    fetchClients();
   }, []);
 
   return (
@@ -90,6 +118,7 @@ const Customers = () => {
         <h2 className="page-header">Clientes</h2>
         {error && <p>{error.message}</p>}
         {isLoading && <img src={spinner} alt="" width="40" height="40" />}
+        {}
         {!error && (
           <div className="row">
             <div className="col-12">
@@ -102,6 +131,16 @@ const Customers = () => {
           </div>
         )}
       </div>
+      {showEditClient && (
+        <CustomerModal canEdit username={currentClientUsername} onClose={closeModalHandler} />
+      )}
+      {showClientDetails && (
+        <CustomerModal
+          canEdit={false}
+          username={currentClientUsername}
+          onClose={closeModalHandler}
+        />
+      )}
     </Layout>
   );
 };
