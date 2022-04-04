@@ -132,7 +132,12 @@ const Customers = () => {
         )}
       </div>
       {showEditClient && (
-        <CustomerModal canEdit username={currentClientUsername} onClose={closeModalHandler} />
+        <CustomerModal
+          canEdit
+          username={currentClientUsername}
+          onClose={closeModalHandler}
+          refreshTable={fetchClients}
+        />
       )}
       {showClientDetails && (
         <CustomerModal

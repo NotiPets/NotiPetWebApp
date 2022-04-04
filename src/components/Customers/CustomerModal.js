@@ -7,7 +7,7 @@ import classes from "./CustomerModal.module.css";
 import spinner from "../../assets/Images/spinner.gif";
 
 // eslint-disable-next-line no-unused-vars
-const CustomerModal = ({ canEdit, username, onClose }) => {
+const CustomerModal = ({ canEdit, username, onClose, refreshTable }) => {
   const { register, handleSubmit, setValue } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -84,6 +84,7 @@ const CustomerModal = ({ canEdit, username, onClose }) => {
       if (response.ok) {
         setEditSuccess(true);
         fetchClient();
+        refreshTable();
       } else {
         throw new Error(`${response.status}: Algo salió mal al editar el cliente`);
       }
