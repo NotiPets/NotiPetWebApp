@@ -1,9 +1,10 @@
 button {
-  background: #fff;
+  font-size: 1.5rem;
+  background: transparent;
 }
 
 .options {
   width: 100%;
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
