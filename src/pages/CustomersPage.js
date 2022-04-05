@@ -91,10 +91,10 @@ const Customers = () => {
     setIsLoading(true);
     try {
       // eslint-disable-next-line no-undef
-      const response = await fetch(`${process.env.REACT_APP_NOTIPET_API_URL}/users`);
+      const response = await fetch(`${process.env.REACT_APP_NOTIPET_API_URL}/users/byrole/0`); //client role is 0
       if (response.ok) {
         const jsonResponse = await response.json();
-        const filteredClients = jsonResponse.filter((user) => user.role === 0); // client role is 0
+        const filteredClients = jsonResponse; //jsonResponse.filter((user) => user.businessId === 0);
         const clients = mapClientsData(filteredClients);
         setTableData(clients);
       } else {

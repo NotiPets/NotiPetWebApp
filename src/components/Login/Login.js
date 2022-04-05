@@ -1,6 +1,7 @@
 import { useContext, useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
+import UserContext from "../../store/user-context";
 import Button from "../ui/Button/Button";
 import classes from "./Login.module.css";
 import appLogo from "../../assets/Images/logo.png";
@@ -26,6 +27,7 @@ const Login = () => {
   const rememberCredentialsInput = useRef();
 
   const authContext = useContext(AuthContext);
+  const userContext = useContext(UserContext);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -61,12 +63,52 @@ const Login = () => {
 
       if (response.ok) {
         const jsonResponse = await response.json();
+        console.log(jsonResponse);
         updateRememberMeLocalStorage(
           enteredUsername,
           enteredPassword,
           rememberCredentialsInput.current.checked
         );
-        authContext.login(jsonResponse.data.token);
+        authContext.login(jsonResponse.data.jwt);
+        const {
+          active,
+          address1,
+          address2,
+          businessId,
+          city,
+          created,
+          document,
+          documentType,
+          email,
+          id,
+          lastnames,
+          phone,
+          pictureUrl,
+          province,
+          role,
+          updated,
+          username
+        } = jsonResponse.data.user;
+        const userData = {
+          active,
+          address1,
+          address2,
+          businessId,
+          city,
+          created,
+          document,
+          documentType,
+          email,
+          id,
+          lastnames,
+          phone,
+          pictureUrl,
+          province,
+          role,
+          updated,
+          username
+        };
+        userContext.setUser(userData);
         navigate("/dashboard");
         return;
       } else if (response.status === 401) {
