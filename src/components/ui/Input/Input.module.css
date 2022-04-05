@@ -4,9 +4,18 @@
 
 .input label {
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  color: #05726b;
+  font-size: 1.25rem;
 }
 
 .input input {
   border-radius: 0.3rem;
+  border: 1.25px solid #1f1f1f;
+  height: 32px;
+  width: 100%;
+}
+
+.input input[disabled] {
+  background-color: #cccccc;
 }

@@ -9,7 +9,9 @@ const Backdrop = ({ onClick }) => {
 const ModalOverlay = ({ children }) => {
   return (
     <div className={classes.modal}>
-      <div className={classes.content}>{children}</div>
+      <div className={classes["overflow-fix"]}>
+        <div className={classes.content}>{children}</div>
+      </div>
     </div>
   );
 };

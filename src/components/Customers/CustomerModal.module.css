@@ -2,5 +2,18 @@
   display: flex;
   justify-content: space-between;
   max-width: 300px;
+  margin-top: 30px;
   margin-left: auto;
+}
+
+header h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: #00999b;
+}
+
+form {
+  max-width: 80%;
+  margin: 0 auto;
 }
