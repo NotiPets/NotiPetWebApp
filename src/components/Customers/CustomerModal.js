@@ -27,7 +27,6 @@ const CustomerModal = ({ canEdit, username, onClose, refreshTable }) => {
     setValue("province", client.province);
     setValue("created", new Date(client.created).toLocaleDateString("es-DO"));
     setValue("updated", new Date(client.updated).toLocaleDateString("es-DO"));
-    // setClientIsActive(client.active);
   };
 
   const fetchClient = async () => {
@@ -54,23 +53,14 @@ const CustomerModal = ({ canEdit, username, onClose, refreshTable }) => {
     fetchClient();
   }, []);
 
-  // const isActiveRadioChangeHandler = () => {
-  //   setClientIsActive((prev) => {
-  //     return !prev;
-  //   });
-  // };
-
   const formSubmitHandler = async (data) => {
     // eslint-disable-next-line no-undef
-    const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/users/${data.id}`;
+    const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/users/userId?userId=${data.id}`;
     const method = "PUT";
     const reqHeaders = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
-    console.log(initialClientData);
     const reqBody = JSON.stringify({
       ...initialClientData,
-      ...data,
-      created: initialClientData.created,
-      updated: new Date().toISOString()
+      ...data
     });
     setIsLoading(true);
     setEditSuccess(false);
@@ -116,16 +106,6 @@ const CustomerModal = ({ canEdit, username, onClose, refreshTable }) => {
             <Input label="Dirección 2" input={{ ...register("address2"), disabled: !canEdit }} />
             <Input label="Ciudad" input={{ ...register("city"), disabled: !canEdit }} />
             <Input label="Provincia" input={{ ...register("province"), disabled: !canEdit }} />
-            {/* <Input
-              label="Habilitado"
-              input={{
-                ...register("active"),
-                type: "radio",
-                checked: clientIsActive,
-                disabled: !canEdit,
-                onClick: isActiveRadioChangeHandler
-              }}
-            /> */}
             <Input
               label="Fecha de creación"
               input={{
