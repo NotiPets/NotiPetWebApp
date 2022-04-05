@@ -5,6 +5,7 @@ import "./normalize.css";
 import "./index.css";
 import App from "./App";
 import { AuthContextProvider } from "./store/auth-context";
+import { UserContextProvider } from "./store/user-context";
 
 import "./assets/css/grid.css";
 import "./assets/css/theme.css";
@@ -21,9 +22,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <AuthContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <UserContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </UserContextProvider>
       </AuthContextProvider>
     </Provider>
     ,
