@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useContext } from "react";
+import UserContext from "../store/user-context";
 import Table from "../components/Table/Table";
 import Layout from "../components/Layout/Layout";
 import RowOptions from "../components/Table/RowOptions";
@@ -44,6 +45,7 @@ const Customers = () => {
     []
   );
 
+  const userContext = useContext(UserContext);
   const [tableData, setTableData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -94,8 +96,10 @@ const Customers = () => {
       const response = await fetch(`${process.env.REACT_APP_NOTIPET_API_URL}/users/byrole/0`); //client role is 0
       if (response.ok) {
         const jsonResponse = await response.json();
-        const filteredClients = jsonResponse; //jsonResponse.filter((user) => user.businessId === 0);
-        const clients = mapClientsData(filteredClients);
+        const currentBusinessClients = jsonResponse.data.filter(
+          (user) => user.businessId === userContext.businessId
+        );
+        const clients = mapClientsData(currentBusinessClients);
         setTableData(clients);
       } else {
         throw new Error(
@@ -118,8 +122,8 @@ const Customers = () => {
         <h2 className="page-header">Clientes</h2>
         {error && <p>{error.message}</p>}
         {isLoading && <img src={spinner} alt="" width="40" height="40" />}
-        {}
-        {!error && (
+        {tableData.length === 0 && !isLoading && <p>No se encontraron clientes</p>}
+        {!error && tableData.length > 0 && (
           <div className="row">
             <div className="col-12">
               <div className="card">

@@ -63,7 +63,6 @@ const Login = () => {
 
       if (response.ok) {
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
         updateRememberMeLocalStorage(
           enteredUsername,
           enteredPassword,
