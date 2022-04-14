@@ -8,6 +8,7 @@ import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CustomersPage from "./pages/CustomersPage";
 import EmployeesPage from "./pages/EmployeesPage";
+import PetsPage from "./pages/PetsPage";
 
 const App = () => {
   const authContext = useContext(AuthContext);
@@ -26,10 +27,11 @@ const App = () => {
         <Route path="login" element={<LoginPage />} />
         <Route path="dashboard" element={dashboard} />
         <Route path="404" element={<NotFoundPage />} />
-        <Route path="*" element={<Navigate replace={true} to="/404" />} />
         <Route path="customers" element={<CustomersPage />} />
         <Route path="employees" element={<EmployeesPage />} />
         <Route path="store" element={<StorePage />} />
+        <Route path="pets" element={<PetsPage />} />
+        <Route path="*" element={<Navigate replace={true} to="/404" />} />
       </Routes>
     </div>
   );
