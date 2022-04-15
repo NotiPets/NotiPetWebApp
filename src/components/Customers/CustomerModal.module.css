@@ -14,7 +14,7 @@ header h2 {
   color: #00999b;
 }
 
-form {
+.form {
   max-width: 80%;
   margin: 0 auto;
 }

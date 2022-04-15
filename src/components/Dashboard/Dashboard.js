@@ -56,7 +56,7 @@ const renderInboxBody = (item, index) => (
 const renderActivityBody = (item, index) => (
   <tr key={index}>
     <td>{item.text}</td>
-    <td>
+    <td style={{ textAlign: "right" }}>
       <Badge type={activityStatus[item.status]} content={item.status} />
     </td>
   </tr>
@@ -66,12 +66,11 @@ const Dashboard = () => {
   const themeReducer = useSelector((state) => state.ThemeReducer.mode);
 
   return (
-    <div>
+    <>
       <h2 className="page-header"></h2>
-
       <div className="row">
-        <div className="col-10">
-          <div className="row">
+        <div className="col-12" style={{ margin: "0 auto", width: "92%" }}>
+          <div className="row" style={{ width: "100%" }}>
             {statusCards.map((item, index) => (
               <div className="col-4" key={index}>
                 <StatusCard icon={item.icon} count={item.count} title={item.title} />
@@ -95,9 +94,8 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-6">
           <div className="card full-height">
-            {/* chart */}
             <Chart
               options={
                 themeReducer === "theme-mode-dark"
@@ -117,7 +115,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-12">
           <div className="card">
             <div className="card__header">
               <h3>Actividad reciente</h3>
@@ -134,7 +132,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

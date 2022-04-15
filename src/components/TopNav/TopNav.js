@@ -33,7 +33,7 @@ const Topnav = () => {
   return (
     <div className={classes["topnav"]}>
       <div>
-        <h1>Ganancias de hoy</h1>
+        <h1>Tu negocio</h1>
       </div>
       <div className={classes["topnav__right"]}>
         <div className={classes["topnav__right-item"]}>

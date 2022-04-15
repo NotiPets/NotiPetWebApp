@@ -83,7 +83,10 @@ input:focus {
 }
 
 .page-header {
-  margin-bottom: 40px;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
   text-transform: capitalize;
 }
 
