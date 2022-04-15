@@ -83,7 +83,7 @@ const PetModal = ({ canEdit, onClose, petData, refreshTable }) => {
         {error && <p>{error.message}</p>}
         {isLoading && <img src={spinner} alt="" width="40" height="40" />}
         {!isLoading && (
-          <form onSubmit={handleSubmit(formSubmitHandler)}>
+          <form onSubmit={handleSubmit(formSubmitHandler)} className={classes.form}>
             <Input label="Código" input={{ ...register("id"), disabled: true }} />
             <Input label="Nombre" input={{ ...register("name"), disabled: !canEdit }} />
             <label htmlFor="type" className={classes["select-label"]}>
