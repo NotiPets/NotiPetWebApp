@@ -3,7 +3,7 @@ import Table from "../components/Table/Table";
 import Layout from "../components/Layout/Layout";
 import RowOptions from "../components/Table/RowOptions";
 import spinner from "../assets/Images/spinner.gif";
-import CustomerModal from "../components/Customers/CustomerModal";
+import PetModal from "../components/Pets/PetModal";
 
 const Pets = () => {
   const columns = useMemo(
@@ -49,15 +49,15 @@ const Pets = () => {
   const [error, setError] = useState(null);
   const [showEditPet, setShowEditPet] = useState(false);
   const [showPetDetails, setShowPetDetails] = useState(false);
-  const [currentPetUsername, setCurrentPetUsername] = useState(null);
+  const [currentPet, setCurrentPet] = useState({});
 
-  const editPetHandler = (username) => {
-    setCurrentPetUsername(username);
+  const editPetHandler = (pet) => {
+    setCurrentPet(pet);
     setShowEditPet(true);
   };
 
-  const viewPetDetailsHandler = (username) => {
-    setCurrentPetUsername(username);
+  const viewPetDetailsHandler = (pet) => {
+    setCurrentPet(pet);
     setShowPetDetails(true);
   };
 
@@ -112,8 +112,8 @@ const Pets = () => {
         options: (
           <>
             <RowOptions
-              onEdit={() => editPetHandler(pet.id)}
-              onViewDetails={() => viewPetDetailsHandler(pet.id)}
+              onEdit={() => editPetHandler(pet)}
+              onViewDetails={() => viewPetDetailsHandler(pet)}
             />
           </>
         )
@@ -128,7 +128,6 @@ const Pets = () => {
       const response = await fetch(`${process.env.REACT_APP_NOTIPET_API_URL}/pets`);
       if (response.ok) {
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
         const pets = mapPetsData(jsonResponse);
         setTableData(pets);
       } else {
@@ -166,15 +165,15 @@ const Pets = () => {
         )}
       </div>
       {showEditPet && (
-        <CustomerModal
+        <PetModal
           canEdit
-          username={currentPetUsername}
+          petData={currentPet}
           onClose={closeModalHandler}
           refreshTable={fetchPets}
         />
       )}
       {showPetDetails && (
-        <CustomerModal canEdit={false} username={currentPetUsername} onClose={closeModalHandler} />
+        <PetModal canEdit={false} petData={currentPet} onClose={closeModalHandler} />
       )}
     </Layout>
   );
