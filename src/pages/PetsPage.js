@@ -128,7 +128,7 @@ const Pets = () => {
       const response = await fetch(`${process.env.REACT_APP_NOTIPET_API_URL}/pets`);
       if (response.ok) {
         const jsonResponse = await response.json();
-        const pets = mapPetsData(jsonResponse);
+        const pets = mapPetsData(jsonResponse.data);
         setTableData(pets);
       } else {
         throw new Error(
