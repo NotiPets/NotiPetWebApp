@@ -129,11 +129,11 @@ const Login = () => {
       <div className={classes.header}>
         <img src={appLogo} className={classes["app-logo"]} />
 
-        <div className={classes["cart-icon"]}>
+        {/* <div className={classes["cart-icon"]}>
           <a href="">
             <img src="https://img.icons8.com/windows/35/02546A/shopping-cart.png" />
           </a>
-        </div>
+        </div> */}
       </div>
 
       <h1>
