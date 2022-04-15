@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import classes from "./SideBar.module.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import sidebar_items from "../../assets/JsonData/sidebar_routes.json";
 
 const SidebarItem = (props) => {
@@ -21,6 +21,7 @@ const Sidebar = () => {
   const authCtx = useContext(AuthContext);
   const location = useLocation();
   const activeItem = sidebar_items.findIndex((item) => item.route === location.pathname);
+  const navigate = useNavigate();
 
   return (
     <div className={classes["sidebar"]}>
@@ -29,7 +30,14 @@ const Sidebar = () => {
           <SidebarItem title={item.display_name} icon={item.icon} active={index === activeItem} />
         </Link>
       ))}
-      <button type="button" style={{ fontSize: "1rem" }} onClick={() => authCtx.logout()}>
+      <button
+        type="button"
+        style={{ fontSize: "1rem" }}
+        onClick={() => {
+          authCtx.logout();
+          navigate("/login");
+        }}
+      >
         <SidebarItem title="Cerrar sesión" icon="bx bx-log-out" active={false} />
       </button>
     </div>
