@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import BusinessContext from "../../store/business-context";
 import classes from "../Layout/Layout.module.css";
 
 import TopNav from "../TopNav/TopNav";
@@ -8,6 +9,8 @@ import { useSelector, useDispatch } from "react-redux";
 import ThemeAction from "../../redux/actions/ThemeAction";
 
 const Layout = (props) => {
+  const businessContext = useContext(BusinessContext);
+
   const themeReducer = useSelector((state) => state.ThemeReducer);
 
   const dispatch = useDispatch();
@@ -26,7 +29,9 @@ const Layout = (props) => {
     <div className={`${classes["layout"]} ${themeReducer.mode} ${themeReducer.color}`}>
       <Sidebar {...props} />
       <div className={classes["layout__content"]}>
-        <TopNav />
+        <TopNav
+          businessName={businessContext?.businessName ? businessContext?.businessName : "Notipet"}
+        />
         <div className={classes["layout__content-main"]}>{props.children}</div>
       </div>
     </div>

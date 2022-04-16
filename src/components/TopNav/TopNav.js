@@ -29,11 +29,11 @@ const renderUserMenu = (item, index) => (
   </Link>
 );
 
-const Topnav = () => {
+const Topnav = ({ businessName }) => {
   return (
     <div className={classes["topnav"]}>
       <div>
-        <h1>Tu negocio</h1>
+        <h1>{businessName}</h1>
       </div>
       <div className={classes["topnav__right"]}>
         <div className={classes["topnav__right-item"]}>

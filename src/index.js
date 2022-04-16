@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App";
 import { AuthContextProvider } from "./store/auth-context";
 import { UserContextProvider } from "./store/user-context";
+import { BusinessContextProvider } from "./store/business-context";
 
 import "./assets/css/grid.css";
 import "./assets/css/theme.css";
@@ -23,9 +24,11 @@ ReactDOM.render(
     <Provider store={store}>
       <AuthContextProvider>
         <UserContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <BusinessContextProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </BusinessContextProvider>
         </UserContextProvider>
       </AuthContextProvider>
     </Provider>
