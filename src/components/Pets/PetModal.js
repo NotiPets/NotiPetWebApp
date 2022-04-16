@@ -38,7 +38,7 @@ const PetModal = ({ canEdit, onClose, petData, refreshTable }) => {
 
   const formSubmitHandler = async (data) => {
     // eslint-disable-next-line no-undef
-    const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/pets/${data.id}?id=${data.id}`;
+    const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/pets/${data.id}`;
     const method = "PUT";
     const reqHeaders = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
     const reqBody = JSON.stringify({
@@ -46,6 +46,7 @@ const PetModal = ({ canEdit, onClose, petData, refreshTable }) => {
       ...data, // new
       size: +data.size,
       gender: data.gender === "true" ? true : false,
+      type: +data.type,
       created: petData.created,
       updated: petData.updated,
       birthdate: new Date(data.birthdate).toISOString(),
