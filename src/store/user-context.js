@@ -28,26 +28,6 @@ export const UserContextProvider = (props) => {
     setUser({ ...userObj });
   };
 
-  // const {
-  //   active,
-  //   address1,
-  //   address2,
-  //   businessId,
-  //   city,
-  //   created,
-  //   document,
-  //   documentType,
-  //   email,
-  //   id,
-  //   lastnames,
-  //   phone,
-  //   pictureUrl,
-  //   province,
-  //   role,
-  //   updated,
-  //   username
-  // } = user;
-
   const contextValue = {
     ...user,
     setUser: setUserHandler

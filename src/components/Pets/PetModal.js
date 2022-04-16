@@ -18,7 +18,6 @@ const PetModal = ({ canEdit, onClose, petData, refreshTable }) => {
   const [editSuccess, setEditSuccess] = useState(null);
 
   const fillInitialForm = (pet) => {
-    console.log(pet?.user);
     setValue("id", pet.id);
     setValue("name", pet.name);
     setValue("type", pet.petType.toString());
@@ -38,7 +37,6 @@ const PetModal = ({ canEdit, onClose, petData, refreshTable }) => {
   fillInitialForm(petData);
 
   const formSubmitHandler = async (data) => {
-    console.log(new Date(petData.birthdate).toISOString());
     // eslint-disable-next-line no-undef
     const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/pets/${data.id}?id=${data.id}`;
     const method = "PUT";
