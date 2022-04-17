@@ -3,12 +3,15 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import AuthContext from "./store/auth-context";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import StorePage from "./pages/StorePage";
 import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CustomersPage from "./pages/CustomersPage";
 import EmployeesPage from "./pages/EmployeesPage";
 import PetsPage from "./pages/PetsPage";
+import ProductsPage from "./pages/ProductsPage";
+import ServicesPage from "./pages/ServicesPage";
+import CustomerStorePage from "./pages/CustomerStorePage";
+import CustomerServicesPage from "./pages/CustomerServicesPage";
 
 const App = () => {
   const authContext = useContext(AuthContext);
@@ -29,9 +32,12 @@ const App = () => {
         <Route path="404" element={<NotFoundPage />} />
         <Route path="customers" element={<CustomersPage />} />
         <Route path="employees" element={<EmployeesPage />} />
-        <Route path="store" element={<StorePage />} />
         <Route path="pets" element={<PetsPage />} />
         <Route path="*" element={<Navigate replace={true} to="/404" />} />
+        <Route path="products" element={<ProductsPage />} />
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="customerStore" element={<CustomerStorePage />} />
+        <Route path="customerServices" element={<CustomerServicesPage />} />
       </Routes>
     </div>
   );

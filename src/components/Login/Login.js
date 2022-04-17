@@ -130,7 +130,7 @@ const Login = () => {
       </div>
 
       <h1>
-        Bienvenido de vuelta a <span className={classes.highlight}>Notipet</span>
+        Bienvenido de vuelta a <span className={classes.highlight}>NotiPet</span>
       </h1>
       <h2>Iniciar sesión</h2>
 

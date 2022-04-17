@@ -1,0 +1,14 @@
+.panelList-wrap,
+.list-wrap {
+  overflow-y: auto;
+}
+
+.panelList-wrap {
+  flex: 1;
+  display: flex;
+}
+
+.list-wrap {
+  flex: 1;
+  padding: 1rem;
+}

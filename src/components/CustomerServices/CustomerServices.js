@@ -1,7 +1,7 @@
 import List from "../List/List";
 import NavBar from "../NavBar/NavBar";
 import EmptyView from "../EmptyView/EmptyView";
-import classes from "../Store/Store.module.css";
+import classes from "../CustomerServices/CustomerServices.module.css";
 import React, { useEffect, useState } from "react";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import mockDataList from "../../assets/JsonData/services-list.json";

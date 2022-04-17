@@ -12,10 +12,10 @@ const NavBar = () => {
               <a href="/">Home</a>
             </li>
             <li className={classes["nav-item"]}>
-              <a href="">Tienda</a>
+              <a href="/CustomerStore">Tienda</a>
             </li>
             <li className={classes["nav-item"]}>
-              <a href="/store">Servicios</a>
+              <a href="/CustomerServices">Servicios</a>
             </li>
           </ul>
         </nav>
