@@ -30,7 +30,7 @@ const Layout = (props) => {
       <Sidebar {...props} />
       <div className={classes["layout__content"]}>
         <TopNav
-          businessName={businessContext?.businessName ? businessContext?.businessName : "Notipet"}
+          businessName={businessContext?.businessName ? businessContext?.businessName : "NotiPet"}
         />
         <div className={classes["layout__content-main"]}>{props.children}</div>
       </div>

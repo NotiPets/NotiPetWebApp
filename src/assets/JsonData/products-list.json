@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "rating": 0,
+    "price": 1550,
+    "image": "",
+    "category": "alimento",
+    "name": "Old Prince Novel x 17 KG",
+    "description": "Cordero y arroz."
+  },
+  {
+    "id": 2,
+    "rating": 0,
+    "price": 1000,
+    "image": "",
+    "category": "alimento",
+    "name": "ProPlan Puppy x 18 KG",
+    "description": "Mordida Mediana (Complete Breed - Medium Breed)."
+  },
+  {
+    "id": 3,
+    "rating": 0,
+    "price": 2000,
+    "image": "",
+    "category": "accesorios",
+    "name": "Casa p/perros Igloo",
+    "description": "Casa térmica para perros."
+  },
+  {
+    "id": 4,
+    "rating": 0,
+    "price": 1800,
+    "category": "alimento",
+    "image": "",
+    "name": "CatChow pescado x 18 KG",
+    "description": "Comida para gatos sabor a pescado."
+  },
+  {
+    "id": 5,
+    "rating": 0,
+    "price": 2000,
+    "category": "alimento",
+    "image": "",
+    "name": "Pedigree Pouch Pollo x 100g",
+    "description": "Comida para gatos sabor a pollo."
+  },
+  {
+    "id": 6,
+    "rating": 0,
+    "price": 3500,
+    "category": "shampoo",
+    "image": "",
+    "name": "Spray FrontLine x 250 ml",
+    "description": "Spray para cuidado animal."
+  }
+]

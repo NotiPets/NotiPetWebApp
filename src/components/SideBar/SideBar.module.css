@@ -36,7 +36,7 @@
 }
 
 .sidebar__item-inner > span {
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .sidebar__item-inner:hover {
