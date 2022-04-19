@@ -109,7 +109,7 @@ const ThemeMenu = () => {
         className={classes["dropdown__toggle"]}
         onClick={() => setActiveMenu()}
       >
-        <img src="https://img.icons8.com/ios/25/ffffff/color-palette.png" />
+        <img src="https://img.icons8.com/ios/30/ffffff/color-palette.png" />
       </button>
       <div ref={menu_ref} className={menuClasses}>
         <h4>Opciones de color</h4>
