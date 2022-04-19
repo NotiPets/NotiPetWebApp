@@ -1,12 +1,12 @@
-import OldTable from "../Table/OldTable";
 import Badge from "../Badge/Badge";
 import Chart from "react-apexcharts";
 import { Link } from "react-router-dom";
+import OldTable from "../Table/OldTable";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import StatusCard from "../Status-Card/StatusCard";
 
 import inboxList from "../../assets/JsonData/inbox-list.json";
-import statusCards from "../../assets/JsonData/status-card-data.json";
 import recentActivity from "../../assets/JsonData/recent-activity.json";
 
 const chartOptions = {
@@ -65,17 +65,104 @@ const renderActivityBody = (item, index) => (
 const Dashboard = () => {
   const themeReducer = useSelector((state) => state.ThemeReducer.mode);
 
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [pendingAppointments, setPendingAppointments] = useState(0);
+  const [completedAppointments, setCompletedAppointments] = useState(0);
+  const [appliedVaccines, setAppliedVaccines] = useState(0);
+
+  const fetchCompletedAppointments = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        // eslint-disable-next-line no-undef
+        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appointmentcompleted`
+      );
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        setCompletedAppointments(jsonResponse?.data?.length ?? 0);
+      } else {
+        throw new Error(`Error ${response.status}: Ha ocurrido un error en el proceso.`);
+      }
+    } catch (error) {
+      setError({ message: error.message });
+    }
+    setIsLoading(false);
+  };
+
+  const fetchPendingAppointments = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        // eslint-disable-next-line no-undef
+        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appointmentpending`
+      );
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        setPendingAppointments(jsonResponse?.data?.length ?? 0);
+      } else {
+        throw new Error(`Error ${response.status}: Ha ocurrido un error en el proceso.`);
+      }
+    } catch (error) {
+      setError({ message: error.message });
+    }
+    setIsLoading(false);
+  };
+
+  const fetchAppliedVaccines = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        // eslint-disable-next-line no-undef
+        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appliedvaccines`
+      );
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        setAppliedVaccines(jsonResponse?.data?.length ?? 0);
+      } else {
+        throw new Error(`Error ${response.status}: Ha ocurrido un error en el proceso.`);
+      }
+    } catch (error) {
+      setError({ message: error.message });
+    }
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchAppliedVaccines();
+    fetchPendingAppointments();
+    fetchCompletedAppointments();
+  }, []);
+
   return (
     <>
       <h2 className="page-header"></h2>
+      {error && <p>{error.message}</p>}
+      {isLoading}
       <div className="row">
         <div className="col-12" style={{ margin: "0 auto", width: "92%" }}>
-          <div className="row" style={{ width: "100%" }}>
-            {statusCards.map((item, index) => (
-              <div className="col-4" key={index}>
-                <StatusCard icon={item.icon} count={item.count} title={item.title} />
-              </div>
-            ))}
+          <div className="row">
+            <div className="col-4">
+              <StatusCard
+                icon="bx bx-calendar-check"
+                count={completedAppointments}
+                title="Citas completadas"
+              />
+            </div>
+            <div className="col-4-1">
+              <StatusCard
+                icon="bx bx-calendar-x"
+                count={pendingAppointments}
+                title="Citas pendientes"
+              />
+            </div>
+            <div className="col-4-2">
+              <StatusCard
+                icon="bx bxs-eyedropper"
+                count={appliedVaccines}
+                title="Vacunas aplicadas"
+              />
+            </div>
           </div>
         </div>
         <div className="col-6">
