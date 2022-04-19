@@ -12,6 +12,7 @@ import ProductsPage from "./pages/ProductsPage";
 import ServicesPage from "./pages/ServicesPage";
 import CustomerStorePage from "./pages/CustomerStorePage";
 import CustomerServicesPage from "./pages/CustomerServicesPage";
+import AppointmentsPage from "./pages/AppointmentsPage";
 
 const App = () => {
   const authContext = useContext(AuthContext);
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="*" element={<Navigate replace={true} to="/404" />} />
         <Route path="products" element={<ProductsPage />} />
         <Route path="services" element={<ServicesPage />} />
+        <Route path="appointments" element={<AppointmentsPage />} />
         <Route path="customerStore" element={<CustomerStorePage />} />
         <Route path="customerServices" element={<CustomerServicesPage />} />
       </Routes>
