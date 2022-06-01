@@ -74,14 +74,16 @@ const AppointmentModal = ({ canEdit, appointmentData, onClose, refreshTable }) =
   const formSubmitHandler = async (data) => {
     // eslint-disable-next-line no-undef
     const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/appointments/${appointmentData.appointment.id}`;
+    console.log(appointmentData.appointment.id);
     const method = "PUT";
     const reqHeaders = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
     const reqBody = JSON.stringify({
-      specialistId: data.specialistId,
+      specialistId: data.specialistId === "No asignado" ? null : data.specialistId,
       isEmergency: data.urgency === "high" ? true : false,
       date: new Date(data.appointmentDate).toISOString(),
       appointmentStatus: +data.status
     });
+    console.log(reqBody);
     setIsLoading(true);
     setEditSuccess(false);
     setError(null);
@@ -91,6 +93,7 @@ const AppointmentModal = ({ canEdit, appointmentData, onClose, refreshTable }) =
         body: reqBody,
         headers: reqHeaders
       });
+      console.log(await response.json());
       if (response.ok) {
         setEditSuccess(true);
         refreshTable();
