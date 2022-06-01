@@ -44,7 +44,7 @@ const Login = () => {
     const enteredPassword = passwordInput.current.value;
 
     // eslint-disable-next-line no-undef
-    const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/login`;
+    const endpoint = `${process.env.REACT_APP_NOTIPET_API_URL}/login/Web`;
     const method = "POST";
     const reqHeaders = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
     const reqBody = JSON.stringify({
