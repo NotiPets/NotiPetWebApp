@@ -72,6 +72,7 @@ const AppointmentsPage = () => {
   };
 
   const mapAppointmentsData = (appointmentsData) => {
+    console.log(appointmentsData, businessContext.id);
     return appointmentsData.map((appointment, index) => {
       let status;
       switch (appointment?.appointment?.appointmentStatus) {
@@ -124,7 +125,7 @@ const AppointmentsPage = () => {
       );
       if (response.ok) {
         const jsonResponse = await response.json();
-        const appointments = mapAppointmentsData(jsonResponse.data);
+        const appointments = mapAppointmentsData(jsonResponse.data.appointments);
         setTableData(appointments);
       } else {
         throw new Error(`Error ${response.status}: Algo salió mal al intentar recuperar las citas`);
