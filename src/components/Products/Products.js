@@ -50,7 +50,7 @@ const Products = () => {
 
       if (response.ok) {
         const jsonResponse = await response.json();
-        const availableProducts = jsonResponse.filter((product) => product.assetsServiceType === 0);
+        const availableProducts = jsonResponse.filter((product) => product.assetsServiceType === 0); // asset service type for products is = 0
         const products = mapProductsData(availableProducts);
         setList(products);
       } else {

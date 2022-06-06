@@ -50,7 +50,7 @@ const Services = () => {
 
       if (response.ok) {
         const jsonResponse = await response.json();
-        const availableServices = jsonResponse.filter((service) => service.assetsServiceType === 1); //  asset service type for services is = 1
+        const availableServices = jsonResponse.filter((service) => service.assetsServiceType === 1); // asset service type for services is = 1
         const services = mapServicesData(availableServices);
         setList(services);
       } else {
