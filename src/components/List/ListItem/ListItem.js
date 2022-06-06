@@ -1,19 +1,19 @@
 import React from "react";
 import classes from "./ListItem.module.css";
 
-const ListItem = ({ item: { image, name, price, description, rating } }) => (
+const ListItem = ({ item: { pictureUrl, name, price, description } }) => (
   <div className={classes["listItem-wrap"]}>
-    <img src={image} alt="" />
+    <img src={pictureUrl} alt="" />
     <header>
       <h4>{name}</h4>
-      <span>⭐{rating}</span>
+      <span>⭐5</span>
     </header>
     <footer>
       <p>
         <b>{description}</b>
       </p>
       <p>
-        <b>${price}</b>
+        <b>{price}</b>
       </p>
     </footer>
   </div>

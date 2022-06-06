@@ -20,8 +20,9 @@ const Products = () => {
     return productsData.map((product) => ({
       id: product.id,
       name: product.name,
+      pictureUrl: product.pictureUrl,
       description: product.description,
-      price: product.price
+      price: product.price.toLocaleString("es-DO", { style: "currency", currency: "DOP" })
     }));
   };
 
@@ -50,7 +51,9 @@ const Products = () => {
 
       if (response.ok) {
         const jsonResponse = await response.json();
-        const availableProducts = jsonResponse.filter((product) => product.assetsServiceType === 0); // asset service type for products is = 0
+        const availableProducts = jsonResponse.data.filter(
+          (product) => product.assetsServiceType === 0
+        ); // asset service type for products is = 0
         const products = mapProductsData(availableProducts);
         setList(products);
       } else {

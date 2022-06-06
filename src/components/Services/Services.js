@@ -20,8 +20,9 @@ const Services = () => {
     return servicesData.map((service) => ({
       id: service.id,
       name: service.name,
+      pictureUrl: service.pictureUrl,
       description: service.description,
-      price: service.price
+      price: service.price.toLocaleString("es-DO", { style: "currency", currency: "DOP" })
     }));
   };
 
@@ -50,7 +51,9 @@ const Services = () => {
 
       if (response.ok) {
         const jsonResponse = await response.json();
-        const availableServices = jsonResponse.filter((service) => service.assetsServiceType === 1); // asset service type for services is = 1
+        const availableServices = jsonResponse.data.filter(
+          (service) => service.assetsServiceType === 1
+        ); // asset service type for services is = 1
         const services = mapServicesData(availableServices);
         setList(services);
       } else {
