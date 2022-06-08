@@ -65,7 +65,7 @@ const renderActivityBody = (item, index) => (
 const Dashboard = () => {
   const themeReducer = useSelector((state) => state.ThemeReducer.mode);
 
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const businessContext = useContext(BusinessContext);
   const [pendingAppointments, setPendingAppointments] = useState(0);
@@ -86,7 +86,7 @@ const Dashboard = () => {
         throw new Error(`Error ${response.status}: Ha ocurrido un error en el proceso.`);
       }
     } catch (error) {
-      setError({ message: error.message });
+      // setError({ message: error.message });
     }
     setIsLoading(false);
   };
@@ -105,7 +105,7 @@ const Dashboard = () => {
         throw new Error(`Error ${response.status}: Ha ocurrido un error en el proceso.`);
       }
     } catch (error) {
-      setError({ message: error.message });
+      // setError({ message: error.message });
     }
     setIsLoading(false);
   };
@@ -124,7 +124,7 @@ const Dashboard = () => {
         throw new Error(`Error ${response.status}: Ha ocurrido un error en el proceso.`);
       }
     } catch (error) {
-      setError({ message: error.message });
+      // setError({ message: error.message });
     }
     setIsLoading(false);
   };
@@ -138,7 +138,7 @@ const Dashboard = () => {
   return (
     <>
       <h2 className="page-header"></h2>
-      {error && <p>{error.message}</p>}
+      {/* {error && <p>{error.message}</p>} */}
       {isLoading}
       <div className="row">
         <div className="col-12" style={{ margin: "0 auto", width: "92%" }}>

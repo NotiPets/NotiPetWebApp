@@ -121,7 +121,7 @@ const AppointmentsPage = () => {
     try {
       const response = await fetch(
         // eslint-disable-next-line no-undef
-        `${process.env.REACT_APP_NOTIPET_API_URL}/appointments/bybusiness/${businessContext.id}`
+        `${process.env.REACT_APP_NOTIPET_API_URL}/appointments/bybusiness/${businessContext.id}?itemCount=1000&page=1`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
