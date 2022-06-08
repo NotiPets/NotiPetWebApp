@@ -3,9 +3,11 @@ import classes from "./RowOptions.module.css";
 const RowOptions = ({ onEdit, onViewDetails }) => {
   return (
     <div className={classes.options}>
-      <button type="button" onClick={onEdit}>
-        <i className="bx bxs-edit"></i>
-      </button>
+      {onEdit && (
+        <button type="button" onClick={onEdit}>
+          <i className="bx bxs-edit"></i>
+        </button>
+      )}
       <button type="button" onClick={onViewDetails}>
         <i className="bx bx-spreadsheet"></i>
       </button>
