@@ -10,9 +10,9 @@ import CustomersPage from "./pages/CustomersPage";
 import EmployeesPage from "./pages/EmployeesPage";
 import DashboardPage from "./pages/DashboardPage";
 import AppointmentsPage from "./pages/AppointmentsPage";
+import CustomerStorePage from "./pages/CustomerStorePage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AppliedVaccinesPage from "./pages/AppliedVaccinesPage";
-import CustomerStorePage from "./pages/CustomerStorePage";
 import CustomerServicesPage from "./pages/CustomerServicesPage";
 
 const App = () => {
