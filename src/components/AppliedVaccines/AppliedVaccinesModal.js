@@ -1,4 +1,5 @@
 import Modal from "../ui/Modal/Modal";
+
 import Button from "../ui/Button/Button";
 import { useForm } from "react-hook-form";
 import Input from "../ui/Input/Input";
@@ -23,6 +24,34 @@ const AppliedVaccineModal = ({ canEdit, onClose, appliedVaccine }) => {
 
   fillInitialForm(appliedVaccine);
 
+  const downloadCertificateHandler = async () => {
+    try {
+      const response = await fetch(
+        // eslint-disable-next-line no-undef
+        `${process.env.REACT_APP_NOTIPET_API_URL}/digitalvaccine/pdf/${appliedVaccine.id}`
+      );
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute(
+          "download",
+          `${appliedVaccine.pet.name}-${appliedVaccine.vaccine.vaccineName}-Cert.pdf`
+        );
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      } else {
+        throw new Error(
+          `Error ${response.status}: Algo salió mal al intentar descargar el certificado de vacunación.`
+        );
+      }
+    } catch (error) {
+      // setError({ message: error.message });
+    }
+  };
+
   return (
     <Modal onClick={onClose}>
       <header>
@@ -30,6 +59,9 @@ const AppliedVaccineModal = ({ canEdit, onClose, appliedVaccine }) => {
       </header>
       <main>
         <form className={classes.form}>
+          <Button type="button" onClick={downloadCertificateHandler} className={classes.download}>
+            Descargar certificado
+          </Button>
           <Input label="Código" input={{ ...register("id"), disabled: true }} />
           <Input label="Fecha de aplicación" input={{ ...register("date"), disabled: true }} />
           <Input label="Id de la vacuna" input={{ ...register("vaccineId"), disabled: true }} />
