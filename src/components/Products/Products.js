@@ -11,12 +11,11 @@ import React, { useEffect, useState, useContext } from "react";
 const Products = () => {
   const [list, setList] = useState([]);
   const [error, setError] = useState(null);
-  const [filterList, setFilterList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const businessContext = useContext(BusinessContext);
-  const [resultsFound, setResultsFound] = useState(true);
   const [currentProduct, setCurrentProduct] = useState({});
+  const [filteredResults, setFilteredResults] = useState([]);
   const [showEditProduct, setShowEditProduct] = useState(false);
   const [showProductDetails, setShowProductDetails] = useState(false);
 
@@ -47,20 +46,18 @@ const Products = () => {
     }));
   };
 
-  const applyFilters = () => {
-    let updatedList = list;
+  const searchItems = (searchInput) => {
+    setSearchInput(searchInput);
 
-    // Search Filter
-    if (searchInput) {
-      updatedList = updatedList.filter(
-        (item) => item.name.toLowerCase().search(searchInput.toLowerCase().trim()) !== -1
-      );
+    if (searchInput !== "") {
+      const filteredData = list.filter((item) => {
+        return Object.values(item).join("").toLowerCase().includes(searchInput.toLowerCase());
+      });
+      console.log(filteredData.length);
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(list);
     }
-
-    setFilterList(updatedList);
-    setList(updatedList);
-
-    !updatedList.length ? setResultsFound(false) : setResultsFound(true);
   };
 
   const fetchProducts = async () => {
@@ -91,20 +88,20 @@ const Products = () => {
 
   useEffect(async () => {
     fetchProducts();
-    applyFilters();
   }, [searchInput]);
 
   return (
     <Layout>
       {/* Search Bar */}
-      <SearchBar value={searchInput} changeInput={(e) => setSearchInput(e.target.value)} />
+      <SearchBar value={searchInput} changeInput={(e) => searchItems(e.target.value)} />
 
       <div className={classes["panelList-wrap"]}>
         {/* List and Empty view */}
         <div className={classes["list-wrap"]}>
           {error && <p>{error.message}</p>}
           {isLoading && <img className={"spinner"} src={spinner} alt="" width="40" height="40" />}
-          {resultsFound ? <List list={filterList} /> : <EmptyView />}
+          {filteredResults.length === 0 && searchInput.length > 1 && <EmptyView />}
+          {searchInput.length > 1 ? <List list={filteredResults} /> : <List list={list} />}
         </div>
       </div>
       {showEditProduct && (
