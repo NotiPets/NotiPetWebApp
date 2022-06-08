@@ -89,7 +89,9 @@ const CustomerModal = ({ canEdit, username, onClose, refreshTable }) => {
         <h2>{canEdit ? "Editar cliente" : "Detalles del cliente"}</h2>
       </header>
       <main>
-        {editSuccess && <p>Editado exitosamente</p>}
+        {editSuccess && (
+          <p className={classes["success-message"]}>¡Cliente editado exitosamente!</p>
+        )}
         {error && <p>{error.message}</p>}
         {isLoading && <img src={spinner} alt="" width="40" height="40" />}
         {!isLoading && (

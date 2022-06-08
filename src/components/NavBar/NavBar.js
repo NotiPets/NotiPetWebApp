@@ -11,12 +11,6 @@ const NavBar = () => {
             <li className={classes["nav-item"]}>
               <a href="/">Home</a>
             </li>
-            <li className={classes["nav-item"]}>
-              <a href="/CustomerStore">Tienda</a>
-            </li>
-            <li className={classes["nav-item"]}>
-              <a href="/CustomerServices">Servicios</a>
-            </li>
           </ul>
         </nav>
       </div>

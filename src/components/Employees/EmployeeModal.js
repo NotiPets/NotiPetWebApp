@@ -92,7 +92,9 @@ const EmployeeModal = ({ canEdit, username, onClose, refreshTable }) => {
         <h2>{canEdit ? "Editar empleado" : "Detalles del empleado"}</h2>
       </header>
       <main>
-        {editSuccess && <p>Editado exitosamente</p>}
+        {editSuccess && (
+          <p className={classes["success-message"]}>¡Empleado editado exitosamente!</p>
+        )}
         {error && <p>{error.message}</p>}
         {isLoading && <img src={spinner} alt="" width="40" height="40" />}
         {!isLoading && (

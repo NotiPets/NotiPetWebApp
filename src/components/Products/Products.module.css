@@ -12,3 +12,7 @@
   flex: 1;
   padding: 1rem;
 }
+
+.list-wrap image {
+  height: 100px;
+}

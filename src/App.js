@@ -1,19 +1,19 @@
 import { useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import AuthContext from "./store/auth-context";
+import PetsPage from "./pages/PetsPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashboardPage";
+import AuthContext from "./store/auth-context";
 import NotFoundPage from "./pages/NotFoundPage";
-import CustomersPage from "./pages/CustomersPage";
-import EmployeesPage from "./pages/EmployeesPage";
-import PetsPage from "./pages/PetsPage";
 import ProductsPage from "./pages/ProductsPage";
 import ServicesPage from "./pages/ServicesPage";
+import CustomersPage from "./pages/CustomersPage";
+import EmployeesPage from "./pages/EmployeesPage";
+import DashboardPage from "./pages/DashboardPage";
+import AppointmentsPage from "./pages/AppointmentsPage";
+import { Routes, Route, Navigate } from "react-router-dom";
+import AppliedVaccinesPage from "./pages/AppliedVaccinesPage";
 import CustomerStorePage from "./pages/CustomerStorePage";
 import CustomerServicesPage from "./pages/CustomerServicesPage";
-import AppointmentsPage from "./pages/AppointmentsPage";
-import AppliedVaccinesPage from "./pages/AppliedVaccinesPage";
 
 const App = () => {
   const authContext = useContext(AuthContext);

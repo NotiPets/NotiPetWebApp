@@ -3,9 +3,9 @@ import Chart from "react-apexcharts";
 import { Link } from "react-router-dom";
 import OldTable from "../Table/OldTable";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import StatusCard from "../Status-Card/StatusCard";
-
+import { useEffect, useState, useContext } from "react";
+import BusinessContext from "../../store/business-context";
 import inboxList from "../../assets/JsonData/inbox-list.json";
 import recentActivity from "../../assets/JsonData/recent-activity.json";
 
@@ -67,6 +67,7 @@ const Dashboard = () => {
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const businessContext = useContext(BusinessContext);
   const [pendingAppointments, setPendingAppointments] = useState(0);
   const [completedAppointments, setCompletedAppointments] = useState(0);
   const [appliedVaccines, setAppliedVaccines] = useState(0);
@@ -76,7 +77,7 @@ const Dashboard = () => {
     try {
       const response = await fetch(
         // eslint-disable-next-line no-undef
-        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appointmentcompleted`
+        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appointmentcompleted/${businessContext.id}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
@@ -95,7 +96,7 @@ const Dashboard = () => {
     try {
       const response = await fetch(
         // eslint-disable-next-line no-undef
-        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appointmentpending`
+        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appointmentpending/${businessContext.id}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
@@ -114,7 +115,7 @@ const Dashboard = () => {
     try {
       const response = await fetch(
         // eslint-disable-next-line no-undef
-        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appliedvaccines`
+        `${process.env.REACT_APP_NOTIPET_API_URL}/dashboard/appliedvaccines/${businessContext.id}`
       );
       if (response.ok) {
         const jsonResponse = await response.json();
