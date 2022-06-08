@@ -7,7 +7,6 @@ import spinner from "../../assets/Images/spinner.gif";
 import classes from "../Products/Products.module.css";
 import BusinessContext from "../../store/business-context";
 import React, { useEffect, useState, useContext } from "react";
-import mockDataList from "../../assets/JsonData/services-list.json";
 
 const Services = () => {
   const [list, setList] = useState([]);
@@ -15,8 +14,8 @@ const Services = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const businessContext = useContext(BusinessContext);
-  const [resultsFound, setResultsFound] = useState(true);
   const [currentService, setCurrentService] = useState({});
+  const [filteredResults, setFilteredResults] = useState([]);
   const [showEditService, setShowEditService] = useState(false);
   const [showServiceDetails, setShowServiceDetails] = useState(false);
 
@@ -47,19 +46,18 @@ const Services = () => {
     }));
   };
 
-  const applyFilters = () => {
-    let updatedList = mockDataList;
+  const searchItems = (searchInput) => {
+    setSearchInput(searchInput);
 
-    // Search Filter
-    if (searchInput) {
-      updatedList = updatedList.filter(
-        (item) => item.name.toLowerCase().search(searchInput.toLowerCase().trim()) !== -1
-      );
+    if (searchInput !== "") {
+      const filteredData = list.filter((item) => {
+        return Object.values(item).join("").toLowerCase().includes(searchInput.toLowerCase());
+      });
+      console.log(filteredData.length);
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(list);
     }
-
-    setList(updatedList);
-
-    !updatedList.length ? setResultsFound(false) : setResultsFound(true);
   };
 
   const fetchServices = async () => {
@@ -90,20 +88,20 @@ const Services = () => {
 
   useEffect(async () => {
     fetchServices();
-    applyFilters();
   }, [searchInput]);
 
   return (
     <Layout>
       {/* Search Bar */}
-      <SearchBar value={searchInput} changeInput={(e) => setSearchInput(e.target.value)} />
+      <SearchBar value={searchInput} changeInput={(e) => searchItems(e.target.value)} />
 
       <div className={classes["panelList-wrap"]}>
         {/* List and Empty view */}
         <div className={classes["list-wrap"]}>
           {error && <p>{error.message}</p>}
           {isLoading && <img src={spinner} alt="" width="40" height="40" />}
-          {resultsFound ? <List list={list} /> : <EmptyView />}
+          {filteredResults.length === 0 && searchInput.length > 1 && <EmptyView />}
+          {searchInput.length > 1 ? <List list={filteredResults} /> : <List list={list} />}
         </div>
       </div>
       {showEditService && (
