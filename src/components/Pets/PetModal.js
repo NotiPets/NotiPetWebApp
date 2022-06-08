@@ -78,7 +78,9 @@ const PetModal = ({ canEdit, onClose, petData, refreshTable }) => {
         <h2>{canEdit ? "Editar mascota" : "Detalles de la mascota"}</h2>
       </header>
       <main>
-        {editSuccess && <p>Editado exitosamente</p>}
+        {editSuccess && (
+          <p className={classes["success-message"]}>¡Mascota editada exitosamente!</p>
+        )}
         {error && <p>{error.message}</p>}
         {isLoading && <img src={spinner} alt="" width="40" height="40" />}
         {!isLoading && (

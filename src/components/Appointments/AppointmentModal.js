@@ -111,7 +111,7 @@ const AppointmentModal = ({ canEdit, appointmentData, onClose, refreshTable }) =
         <h2>{canEdit ? "Editar cita" : "Detalles de la cita"}</h2>
       </header>
       <main>
-        {editSuccess && <p>Editado exitosamente</p>}
+        {editSuccess && <p className={classes["success-message"]}>¡Cita editada exitosamente!</p>}
         {error && <p>{error.message}</p>}
         {isLoading && <img src={spinner} alt="" width="40" height="40" />}
         {!isLoading && (
