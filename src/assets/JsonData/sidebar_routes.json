@@ -33,5 +33,10 @@
     "display_name": "Mascotas",
     "route": "/pets",
     "icon": "bx bx-home-heart"
+  },
+  {
+    "display_name": "Vacunas aplicadas",
+    "route": "/appliedVaccines",
+    "icon": "bx bxs-eyedropper"
   }
 ]

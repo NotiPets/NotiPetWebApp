@@ -11,6 +11,7 @@ import EmployeesPage from "./pages/EmployeesPage";
 import DashboardPage from "./pages/DashboardPage";
 import AppointmentsPage from "./pages/AppointmentsPage";
 import { Routes, Route, Navigate } from "react-router-dom";
+import AppliedVaccinesPage from "./pages/AppliedVaccinesPage";
 
 const App = () => {
   const authContext = useContext(AuthContext);
@@ -36,6 +37,9 @@ const App = () => {
         <Route path="products" element={<ProductsPage />} />
         <Route path="services" element={<ServicesPage />} />
         <Route path="appointments" element={<AppointmentsPage />} />
+        <Route path="customerStore" element={<CustomerStorePage />} />
+        <Route path="customerServices" element={<CustomerServicesPage />} />
+        <Route path="appliedVaccines" element={<AppliedVaccinesPage />} />
       </Routes>
     </div>
   );
