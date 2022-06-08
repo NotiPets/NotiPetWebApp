@@ -1,5 +1,6 @@
 import List from "../List/List";
 import Layout from "../Layout/Layout";
+import ServiceModal from "./ServiceModal";
 import SearchBar from "../SearchBar/SearchBar";
 import EmptyView from "../EmptyView/EmptyView";
 import spinner from "../../assets/Images/spinner.gif";
@@ -15,6 +16,24 @@ const Services = () => {
   const [searchInput, setSearchInput] = useState("");
   const businessContext = useContext(BusinessContext);
   const [resultsFound, setResultsFound] = useState(true);
+  const [currentService, setCurrentService] = useState({});
+  const [showEditService, setShowEditService] = useState(false);
+  const [showServiceDetails, setShowServiceDetails] = useState(false);
+
+  const editServiceHandler = (service) => {
+    setCurrentService(service);
+    setShowEditService(true);
+  };
+
+  const viewServiceDetailsHandler = (service) => {
+    setCurrentService(service);
+    setShowServiceDetails(true);
+  };
+
+  const closeModalHandler = () => {
+    setShowServiceDetails(false);
+    setShowEditService(false);
+  };
 
   const mapServicesData = (servicesData) => {
     return servicesData.map((service) => ({
@@ -22,6 +41,8 @@ const Services = () => {
       name: service.name,
       pictureUrl: service.pictureUrl,
       description: service.description,
+      onEdit: () => editServiceHandler(service),
+      onViewDetails: () => viewServiceDetailsHandler(service),
       price: service.price.toLocaleString("es-DO", { style: "currency", currency: "DOP" })
     }));
   };
@@ -85,6 +106,17 @@ const Services = () => {
           {resultsFound ? <List list={list} /> : <EmptyView />}
         </div>
       </div>
+      {showEditService && (
+        <ServiceModal
+          canEdit
+          serviceData={currentService}
+          onClose={closeModalHandler}
+          refreshServices={fetchServices}
+        />
+      )}
+      {showServiceDetails && (
+        <ServiceModal canEdit={false} serviceData={currentService} onClose={closeModalHandler} />
+      )}
     </Layout>
   );
 };

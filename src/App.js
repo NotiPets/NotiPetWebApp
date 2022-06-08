@@ -1,18 +1,16 @@
 import { useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import AuthContext from "./store/auth-context";
+import PetsPage from "./pages/PetsPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashboardPage";
+import AuthContext from "./store/auth-context";
 import NotFoundPage from "./pages/NotFoundPage";
-import CustomersPage from "./pages/CustomersPage";
-import EmployeesPage from "./pages/EmployeesPage";
-import PetsPage from "./pages/PetsPage";
 import ProductsPage from "./pages/ProductsPage";
 import ServicesPage from "./pages/ServicesPage";
-import CustomerStorePage from "./pages/CustomerStorePage";
-import CustomerServicesPage from "./pages/CustomerServicesPage";
+import CustomersPage from "./pages/CustomersPage";
+import EmployeesPage from "./pages/EmployeesPage";
+import DashboardPage from "./pages/DashboardPage";
 import AppointmentsPage from "./pages/AppointmentsPage";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
   const authContext = useContext(AuthContext);
@@ -38,8 +36,6 @@ const App = () => {
         <Route path="products" element={<ProductsPage />} />
         <Route path="services" element={<ServicesPage />} />
         <Route path="appointments" element={<AppointmentsPage />} />
-        <Route path="customerStore" element={<CustomerStorePage />} />
-        <Route path="customerServices" element={<CustomerServicesPage />} />
       </Routes>
     </div>
   );

@@ -1,3 +1,8 @@
+.listItem-wrap {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .listItem-wrap img {
   display: block;
   max-width: 100%;
@@ -5,7 +10,6 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  background-color: white;
 }
 
 .listItem-wrap header {
@@ -34,4 +38,9 @@
 .listItem-wrap footer p:first-child span {
   font-weight: 600;
   color: rgba(0, 0, 0, 0.26);
+}
+
+.row-options {
+  text-align: center;
+  position: relative;
 }
