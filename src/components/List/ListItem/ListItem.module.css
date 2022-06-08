@@ -1,7 +1,14 @@
+.listItem-wrap {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .listItem-wrap img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  max-height: 50%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 15px;
 }
 
@@ -19,13 +26,21 @@
   border-radius: 10px;
   background-color: var(--main-color);
 }
+
 .listItem-wrap footer {
   display: flex;
   font-size: 0.8rem;
   align-items: center;
   justify-content: space-between;
+  color: var(--main-color);
 }
+
 .listItem-wrap footer p:first-child span {
   font-weight: 600;
   color: rgba(0, 0, 0, 0.26);
+}
+
+.row-options {
+  text-align: center;
+  position: relative;
 }
