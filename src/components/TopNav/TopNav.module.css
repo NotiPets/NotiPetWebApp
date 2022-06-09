@@ -3,9 +3,9 @@
   display: flex;
   color: white;
   align-items: center;
-  background-color: #00999b;
   height: var(--topnav-height);
   justify-content: space-between;
+  background-color: var(--main-color);
 }
 
 .topnav__search {
