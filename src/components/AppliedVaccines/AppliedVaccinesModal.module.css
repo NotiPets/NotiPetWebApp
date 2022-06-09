@@ -18,3 +18,7 @@ header h2 {
   max-width: 80%;
   margin: 0 auto;
 }
+
+.download {
+  margin: 24px 0 12px 0;
+}
