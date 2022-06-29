@@ -14,6 +14,7 @@ import CustomerStorePage from "./pages/CustomerStorePage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AppliedVaccinesPage from "./pages/AppliedVaccinesPage";
 import CustomerServicesPage from "./pages/CustomerServicesPage";
+import HelpPage from "./pages/HelpPage";
 
 const App = () => {
   const authContext = useContext(AuthContext);
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="customerStore" element={<CustomerStorePage />} />
         <Route path="customerServices" element={<CustomerServicesPage />} />
         <Route path="appliedVaccines" element={<AppliedVaccinesPage />} />
+        <Route path="help" element={<HelpPage />} />
       </Routes>
     </div>
   );
