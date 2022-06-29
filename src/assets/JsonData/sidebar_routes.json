@@ -38,5 +38,10 @@
     "display_name": "Vacunas aplicadas",
     "route": "/appliedVaccines",
     "icon": "bx bxs-eyedropper"
+  },
+  {
+    "display_name": "Ayuda",
+    "route": "/help",
+    "icon": "bx bx-help-circle"
   }
 ]

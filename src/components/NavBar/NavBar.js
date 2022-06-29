@@ -6,13 +6,6 @@ const NavBar = () => {
     <div className={classes.container}>
       <div className={classes.header}>
         <img src={appLogo} className={classes["app-logo"]} />
-        <nav>
-          <ul className={classes["nav-menu"]}>
-            <li className={classes["nav-item"]}>
-              <a href="/">Home</a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
   );
