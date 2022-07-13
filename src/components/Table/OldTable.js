@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classes from "./Table.module.css";
 
 const OldTable = (props) => {
+  console.log(props.bodyData);
   const initDataShow =
     props.limit && props.bodyData ? props.bodyData.slice(0, Number(props.limit)) : props.bodyData;
 
