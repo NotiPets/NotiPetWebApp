@@ -13,6 +13,9 @@ const BusinessContext = createContext({
   pictureUrl: "",
   province: "",
   rnc: "",
+  comment: "",
+  openingTime: "",
+  closingTime: "",
   setBusiness: () => {}
 });
 
