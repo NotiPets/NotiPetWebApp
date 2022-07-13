@@ -178,8 +178,6 @@ const Login = () => {
             <label className={classes["checkbox-text"]} htmlFor="remember-me">
               Recuérdame
             </label>
-
-            <a href="/">¿Olvidó su contraseña?</a>
           </div>
           <Button
             type="submit"

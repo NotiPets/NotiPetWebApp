@@ -77,22 +77,22 @@ const AppointmentsPage = () => {
       let status;
       switch (appointment?.appointment?.appointmentStatus) {
         case 0:
-          status = "Solicitada";
+          status = "Creada";
           break;
         case 1:
-          status = "Aceptada";
+          status = "Actualizada";
           break;
         case 2:
-          status = "Cancelada";
-          break;
-        case 3:
           status = "Completada";
           break;
+        case 3:
+          status = "Cancelada";
+          break;
         case 4:
-          status = "Negada";
+          status = "En curso";
           break;
         default:
-          status = "Solicitada";
+          status = "Creada";
           break;
       }
       return {

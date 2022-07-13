@@ -43,5 +43,10 @@
     "display_name": "Ayuda",
     "route": "/help",
     "icon": "bx bx-help-circle"
+  },
+  {
+    "display_name": "Ajustes",
+    "route": "/businessConfiguration",
+    "icon": "bx bx-wrench"
   }
 ]

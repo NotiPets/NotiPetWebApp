@@ -3,6 +3,7 @@ import PetsPage from "./pages/PetsPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import AuthContext from "./store/auth-context";
+import UserContext from "./store/user-context";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProductsPage from "./pages/ProductsPage";
 import ServicesPage from "./pages/ServicesPage";
@@ -15,17 +16,18 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import AppliedVaccinesPage from "./pages/AppliedVaccinesPage";
 import CustomerServicesPage from "./pages/CustomerServicesPage";
 import HelpPage from "./pages/HelpPage";
+import BusinessConfigurationPage from "./pages/BusinessConfigurationPage";
 
 const App = () => {
   const authContext = useContext(AuthContext);
-
+  const userContext = useContext(UserContext);
+  console.log(userContext.role);
   let dashboard;
   if (authContext.isLoggedIn) {
     dashboard = <DashboardPage />;
   } else {
     dashboard = <Navigate replace={true} to="/login" />;
   }
-
   return (
     <div className="App">
       <Routes>
@@ -43,6 +45,8 @@ const App = () => {
         <Route path="customerStore" element={<CustomerStorePage />} />
         <Route path="customerServices" element={<CustomerServicesPage />} />
         <Route path="appliedVaccines" element={<AppliedVaccinesPage />} />
+        <Route path="appliedVaccines" element={<AppliedVaccinesPage />} />
+        <Route path="businessConfiguration" element={<BusinessConfigurationPage />} />
         <Route path="help" element={<HelpPage />} />
       </Routes>
     </div>
