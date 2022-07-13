@@ -83,7 +83,6 @@ const AppointmentModal = ({ canEdit, appointmentData, onClose, refreshTable }) =
       date: new Date(data.appointmentDate).toISOString(),
       appointmentStatus: +data.status
     });
-    console.log(reqBody);
     setIsLoading(true);
     setEditSuccess(false);
     setError(null);
@@ -155,11 +154,11 @@ const AppointmentModal = ({ canEdit, appointmentData, onClose, refreshTable }) =
               id="status"
               disabled={!canEdit}
             >
-              <option value="0">Solicitada</option>
-              <option value="1">Aceptada</option>
-              <option value="2">Cancelada</option>
-              <option value="3">Completada</option>
-              <option value="4">Negada</option>
+              <option value="0">Creada</option>
+              <option value="1">Actualizada</option>
+              <option value="2">Completada</option>
+              <option value="3">Cancelada</option>
+              <option value="4">En curso</option>
             </select>
             <Input
               label="Urgencia alta"
